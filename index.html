@@ -5,38 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madina Flex & Wedding Cards Center</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
+:root {
+  --primary-color: #0f766e;
+  --secondary-color: #25D366;
+  --bg-light: #f4f6f8;
+}
+
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:#f4f6f8;
+  background: var(--bg-light);
   color:#333;
   scroll-behavior: smooth;
 }
 
-/* ===== SIMPLE HEADER ===== */
+/* ===== SIMPLE HEADER WITH NEW FONT ===== */
 header{
-  background:#0f766e; 
-  padding: 40px 20px;
+  background: var(--primary-color); 
+  padding: 60px 20px;
   text-align: center;
   color: #fff;
 }
 
 .header-text h1{
   margin:0;
-  font-size:48px;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif; /* دکان کے نام کا نیا فونٹ */
+  font-size: clamp(28px, 5vw, 50px);
   letter-spacing: 1px;
-}
-
-.header-text h2{
-  margin:5px 0 0;
-  font-size:24px;
-  font-weight: 400;
-  opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 /* ===== NAV ===== */
@@ -53,7 +53,7 @@ nav{
 nav a{
   margin:0 15px;
   text-decoration:none;
-  color:#0f766e;
+  color: var(--primary-color);
   font-weight:600;
 }
 
@@ -66,7 +66,7 @@ section{
 
 h2{
   text-align:center;
-  color:#0f766e;
+  color: var(--primary-color);
   margin-bottom:30px;
 }
 
@@ -79,7 +79,7 @@ h2{
 
 .card{
   background:#fff;
-  padding:30px;
+  padding:40px 20px;
   border-radius:15px;
   text-align:center;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
@@ -91,10 +91,72 @@ h2{
 .card:hover {
   transform: scale(1.05); /* Zoom In */
   box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-  background-color: #e6fffa;
+  background-color: #f0fdfa;
 }
 
-/* ===== CONTACT ===== */
+/* ===== MODAL SLIDESHOW CSS ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 700px;
+}
+
+.mySlides {
+  display: none;
+  text-align: center;
+}
+
+.mySlides img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  text-decoration: none;
+}
+
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev { left: 0; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+/* ===== CONTACT & FOOTER ===== */
 .contact-box{
   background:#fff;
   padding:40px;
@@ -103,50 +165,30 @@ h2{
   box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* ===== FOOTER ===== */
 footer{
-  background:#0f766e;
+  background: var(--primary-color);
   color:#fff;
   text-align:center;
   padding:20px;
 }
 
-/* ===== WHATSAPP ICON BUTTON (MODIFIED) ===== */
 .whatsapp{
   position:fixed;
   bottom:25px;
   right:25px;
-  background:#25D366;
+  background: var(--secondary-color);
   color:#fff;
-  width: 60px; /* چوڑائی */
-  height: 60px; /* اونچائی */
-  border-radius: 50%; /* مکمل گول */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 35px; /* آئیکن کا سائز */
+  font-size: 35px;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: 0.3s ease;
   z-index: 1000;
-}
-
-.whatsapp:hover{
-    transform: scale(1.1); /* بٹن پر ہلکا سا زوم */
-    background: #20ba5a;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .header-text h1{font-size:32px;}
-  .header-text h2{font-size:18px;}
-  .whatsapp{
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    bottom: 20px;
-    right: 20px;
-  }
 }
 </style>
 </head>
@@ -155,50 +197,110 @@ footer{
 
 <header>
   <div class="header-text">
-    <h1>Madina Flex</h1>
-    <h2>& Wedding Cards Center</h2>
+    <h1>Madina Flex & Wedding Cards Center</h1>
   </div>
 </header>
 
 <nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
-<h2>About Us</h2>
-<p style="text-align:center;max-width:900px;margin:auto;">
-Madina Flex & Wedding Cards Center is a trusted printing press in Jhang,
-providing high-quality flex printing, wedding cards and digital printing
-solutions at affordable prices.
-</p>
+  <h2>About Us</h2>
+  <p style="text-align:center;max-width:900px;margin:auto;">
+    Madina Flex & Wedding Cards Center is a trusted printing press in Jhang,
+    providing high-quality flex printing, wedding cards and digital printing
+    solutions at affordable prices.
+  </p>
 </section>
 
 <section id="services">
-<h2>Our Services</h2>
-<div class="services">
-  <div class="card">Flex Printing & Shop Boards</div>
-  <div class="card">Wedding Cards Printing</div>
-  <div class="card">Digital Printing</div>
-</div>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">Flex Printing & Shop Boards</div>
+    
+    <div class="card" onclick="openModal()">
+      <i class="fas fa-envelope-open-text" style="font-size:30px; color:#0f766e; margin-bottom:10px;"></i><br>
+      Wedding Cards Printing<br>
+      <small style="font-weight:400; color:#666;">(Click to see Designs)</small>
+    </div>
+
+    <div class="card">Digital Printing</div>
+  </div>
 </section>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<div class="contact-box">
-<p><b>Address:</b> Press Market, Shaheed Road, Jhang</p>
-<p><b>Phone:</b> 0345-8091910 | 0318-8091909</p>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    <div class="mySlides">
+      <img src="wedding1.jpg" alt="Wedding Card 1">
+    </div>
+    <div class="mySlides">
+      <img src="wedding2.jpg" alt="Wedding Card 2">
+    </div>
+    <div class="mySlides">
+      <img src="wedding3.jpg" alt="Wedding Card 3">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
 </div>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-box">
+    <p><b>Address:</b> Press Market, Shaheed Road, Jhang</p>
+    <p><b>Phone:</b> 0345-8091910 | 0318-8091909</p>
+  </div>
 </section>
 
 <footer>
-© 2026 Madina Flex & Wedding Cards Center
+  © 2026 Madina Flex & Wedding Cards Center
 </footer>
 
-<a class="whatsapp" href="https://wa.me/923458091910" target="_blank" title="Chat on WhatsApp">
+<a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+var slideIndex = 1;
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+  showSlides(slideIndex);
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+// اگر صارف ماڈل سے باہر کلک کرے تو بند ہو جائے
+window.onclick = function(event) {
+  var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
