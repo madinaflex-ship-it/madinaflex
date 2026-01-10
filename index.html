@@ -2,127 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madina Flex & Wedding Cards Center</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
-  margin:0;
-  font-family:'Times-new-roman',sans-serif;
-  background:#f4f6f8;
-  color:#333;
+    margin:0;
+    font-family: Arial, sans-serif;
 }
 
 header{
-  background:linear-gradient(135deg,#0f766e,#0d9488);
-  color:#fff;
-  padding:60px 20px;
-  text-align:center;
+    width:100%;
+    height:350px;
+    position:relative;
+    overflow:hidden;
 }
 
-header h1{
-  margin:0;
-  font-size:38px;
-  font-weight:700;
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition: opacity 1s ease-in-out;
 }
 
-header p{
-  margin-top:10px;
-  font-size:18px;
+.slide.active{
+    opacity:1;
 }
 
-nav{
-  background:#ffffff;
-  padding:15px;
-  text-align:center;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-nav a{
-  margin:0 15px;
-  text-decoration:none;
-  color:#0f766e;
-  font-weight:600;
-}
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:60px 20px;
-}
-
-h2{
-  text-align:center;
-  margin-bottom:40px;
-  color:#0f766e;
-  font-size:32px;
-}
-
-.about p{
-  text-align:center;
-  font-size:17px;
-  max-width:900px;
-  margin:auto;
-}
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:#fff;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-}
-
-.card h3{
-  margin-top:0;
-  color:#0f766e;
-}
-
-.contact-box{
-  background:#ffffff;
-  border-radius:20px;
-  padding:40px;
-  text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,0.1);
-}
-
-.contact-box p{
-  font-size:18px;
-  margin:10px 0;
-}
-
-footer{
-  background:#0f766e;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-  margin-top:40px;
-}
-
-/* WhatsApp Button */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:15px 20px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+.text-slide{
+    background:#111;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 </style>
 </head>
@@ -130,59 +52,37 @@ footer{
 <body>
 
 <header>
-<h1>Madina Flex & Wedding Cards Center</h1>
-<p>Professional Printing Services in Jhang</p>
+    <!-- Slide 1: Shop Name -->
+    <div class="slide active text-slide">
+        Madina Flex & Wedding Cards Center
+    </div>
+
+    <!-- Slide 2: Flex Printing -->
+    <div class="slide">
+        <img src="images/flex.jpg" alt="Flex Printing">
+    </div>
+
+    <!-- Slide 3: Wedding Cards -->
+    <div class="slide">
+        <img src="images/wedding.jpg" alt="Wedding Cards">
+    </div>
+
+    <!-- Slide 4: Visiting Cards & Stamps -->
+    <div class="slide">
+        <img src="images/visiting.jpg" alt="Visiting Cards & Stamps">
+    </div>
 </header>
 
-<nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
 
-<section id="about" class="about">
-<h2>About Us</h2>
-<p>
-Madina Flex & Wedding Cards Center is a trusted printing press in Jhang,
-providing high-quality flex printing, wedding cards, digital printing,
-photocopy and customized print solutions at affordable prices.
-</p>
-</section>
-
-<section id="services">
-<h2>Our Services</h2>
-
-<div class="services">
-<div class="card">
-<h3>Flex Printing</h3>
-<p>Shop boards, banners, posters & large format flex printing.</p>
-</div>
-
-<div class="card">
-<h3>Wedding Cards</h3>
-<p>Elegant wedding cards with modern and custom designs.</p>
-</div>
-
-<div class="card">
-<h3>Digital Printing</h3>
-<p>High quality color & black-white digital printing.</p>
-</div>
-
-<section id="contact">
-<h2>Contact Us</h2>
-<div class="contact-box">
-<p><strong>Address:</strong> Press Market, Shaheed Road, Jhang</p>
-<p><strong>Phone:</strong> 0345-8091910 | 0318-8091909</p>
-</div>
-</section>
-
-<footer>
-© 2026 Madina Flex & Wedding Cards Center
-</footer>
-
-<a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
-💬 WhatsApp Chat
-</a>
+setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+}, 3000); // 3 seconds
+</script>
 
 </body>
 </html>
