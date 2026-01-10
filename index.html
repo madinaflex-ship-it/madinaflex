@@ -6,6 +6,7 @@
 <title>Madina Flex & Wedding Cards Center</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 body{
@@ -13,64 +14,29 @@ body{
   font-family:'Poppins',sans-serif;
   background:#f4f6f8;
   color:#333;
+  scroll-behavior: smooth;
 }
 
-/* ===== HEADER ===== */
+/* ===== SIMPLE HEADER ===== */
 header{
-  background:#b45309; /* fallback color */
-  background-image:url('header-bg.jpg');
-  background-size:cover;
-  background-position:center;
-}
-
-.header-overlay{
-  background:rgba(0,0,0,0.25);
-}
-
-.header-content{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo-box{
-  background:#fde047;
-  padding:15px 20px;
-  border-radius:10px;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
-
-.logo-box img{
-  width:90px;
-  display:block;
-  margin:auto;
-}
-
-.logo-box p{
-  margin:8px 0 0;
-  font-weight:700;
-}
-
-.header-text{
-  color:#fff;
-  text-align:right;
+  background:#0f766e; 
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
 }
 
 .header-text h1{
   margin:0;
-  font-size:44px;
-  text-shadow:3px 3px 8px #000;
+  font-size:48px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .header-text h2{
   margin:5px 0 0;
-  font-size:26px;
-  color:#0f766e;
-  text-shadow:2px 2px 6px #000;
+  font-size:24px;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 /* ===== NAV ===== */
@@ -79,6 +45,9 @@ nav{
   padding:15px;
   text-align:center;
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a{
@@ -101,11 +70,11 @@ h2{
   margin-bottom:30px;
 }
 
-/* ===== SERVICES ===== */
+/* ===== SERVICES - ZOOM IN EFFECT ===== */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  gap: 25px;
 }
 
 .card{
@@ -115,6 +84,14 @@ h2{
   text-align:center;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
   font-weight:600;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Zoom In */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  background-color: #e6fffa;
 }
 
 /* ===== CONTACT ===== */
@@ -134,34 +111,42 @@ footer{
   padding:20px;
 }
 
-/* ===== WHATSAPP ===== */
+/* ===== WHATSAPP ICON BUTTON (MODIFIED) ===== */
 .whatsapp{
   position:fixed;
-  bottom:20px;
-  right:20px;
+  bottom:25px;
+  right:25px;
   background:#25D366;
   color:#fff;
-  padding:15px 20px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  width: 60px; /* چوڑائی */
+  height: 60px; /* اونچائی */
+  border-radius: 50%; /* مکمل گول */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px; /* آئیکن کا سائز */
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp:hover{
+    transform: scale(1.1); /* بٹن پر ہلکا سا زوم */
+    background: #20ba5a;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  .header-content{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .header-text{
-    text-align:center;
-    margin-top:20px;
-  }
-
   .header-text h1{font-size:32px;}
-  .header-text h2{font-size:22px;}
+  .header-text h2{font-size:18px;}
+  .whatsapp{
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    bottom: 20px;
+    right: 20px;
+  }
 }
 </style>
 </head>
@@ -169,20 +154,9 @@ footer{
 <body>
 
 <header>
-  <div class="header-overlay">
-    <div class="header-content">
-
-      <div class="logo-box">
-        <img src="logo.png" alt="Madina Flex Logo">
-        <p>0345-8091910</p>
-      </div>
-
-      <div class="header-text">
-        <h1>Madina Flex</h1>
-        <h2>& Wedding Cards Center</h2>
-      </div>
-
-    </div>
+  <div class="header-text">
+    <h1>Madina Flex</h1>
+    <h2>& Wedding Cards Center</h2>
   </div>
 </header>
 
@@ -222,8 +196,8 @@ solutions at affordable prices.
 © 2026 Madina Flex & Wedding Cards Center
 </footer>
 
-<a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
-💬 WhatsApp Chat
+<a class="whatsapp" href="https://wa.me/923458091910" target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
 </a>
 
 </body>
