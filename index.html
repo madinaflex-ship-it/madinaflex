@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madina Flex & Wedding Cards Center</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -15,96 +15,136 @@ body{
   color:#333;
 }
 
-
-header{
-  background:linear-gradient(135deg,#0f766e,#0d9488);
-  color:#fff;
-  padding:60px 20px;
-  text-align:center;
+/* ===== HEADER ===== */
+.flex-header{
+  background:url('header-bg.jpg') center/cover no-repeat;
+  min-height:260px;
+  position:relative;
 }
-<img src="Madina Flex.png" alt="Madina Flex Logo" style="height: 80px; width: auto; margin-bottom: 10px;">
-header h1{
-  margin:0;
-  font-size:38px;
+
+.header-overlay{
+  background:rgba(0,0,0,0.25);
+  min-height:260px;
+  display:flex;
+  align-items:center;
+}
+
+.header-content{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo-box{
+  background:#f6e05e;
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+}
+
+.logo-box img{
+  width:90px;
+}
+
+.logo-box p{
+  margin:8px 0 0;
   font-weight:700;
 }
 
-header p{
-  margin-top:10px;
-  font-size:18px;
+.header-text{
+  color:#fff;
+  text-align:right;
 }
 
+.header-text h1{
+  font-size:48px;
+  margin:0;
+  text-shadow:3px 3px 8px #000;
+}
+
+.header-text h2{
+  font-size:30px;
+  margin-top:5px;
+  text-shadow:2px 2px 6px #000;
+}
+
+/* ===== NAV ===== */
 nav{
-  background:#ffffff;
+  background:#fff;
   padding:15px;
   text-align:center;
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
+
 nav a{
   margin:0 15px;
   text-decoration:none;
   color:#0f766e;
   font-weight:600;
 }
+
+/* ===== SECTIONS ===== */
 section{
   max-width:1100px;
   margin:auto;
   padding:60px 20px;
 }
+
 h2{
   text-align:center;
-  margin-bottom:40px;
   color:#0f766e;
-  font-size:32px;
+  margin-bottom:40px;
 }
-.about p{
-  text-align:center;
-  font-size:17px;
-  max-width:900px;
-  margin:auto;
-}
+
+/* ===== SERVICES ===== */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
+
 .card{
   background:#fff;
   padding:30px;
   border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
-}
-.card:hover{
-  transform:translateY(-8px);
-}
-.card h3{
-  margin-top:0;
-  color:#0f766e;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
 }
 
+/* ===== GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* ===== CONTACT ===== */
 .contact-box{
-  background:#ffffff;
-  border-radius:20px;
+  background:#fff;
   padding:40px;
+  border-radius:20px;
   text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-.contact-box p{
-  font-size:18px;
-  margin:10px 0;
-}
-
+/* ===== FOOTER ===== */
 footer{
   background:#0f766e;
   color:#fff;
   text-align:center;
   padding:20px;
-  margin-top:40px;
 }
 
-/* WhatsApp Button */
+/* ===== WHATSAPP ===== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -117,25 +157,55 @@ footer{
   font-weight:600;
   box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .header-content{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .header-text{
+    text-align:center;
+    margin-top:20px;
+  }
+
+  .header-text h1{font-size:34px;}
+  .header-text h2{font-size:22px;}
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Madina Flex & Wedding Cards Center</h1>
-<p>Professional Printing Services in Jhang</p>
+<header class="flex-header">
+  <div class="header-overlay">
+    <div class="header-content">
+
+      <div class="logo-box">
+        <img src="logo.png" alt="Madina Flex Logo">
+        <p>0345-8091910</p>
+      </div>
+
+      <div class="header-text">
+        <h1>Madina Flex</h1>
+        <h2>& Wedding Cards Center</h2>
+      </div>
+
+    </div>
+  </div>
 </header>
 
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<section id="about" class="about">
+<section id="about">
 <h2>About Us</h2>
-<p>
+<p style="text-align:center;max-width:900px;margin:auto;">
 Madina Flex & Wedding Cards Center is a trusted printing press in Jhang,
 providing high-quality flex printing, wedding cards, digital printing,
 photocopy and customized print solutions at affordable prices.
@@ -144,49 +214,18 @@ photocopy and customized print solutions at affordable prices.
 
 <section id="services">
 <h2>Our Services</h2>
-
 <div class="services">
-<div class="card">
-<h3>Flex Printing</h3>
-<p>Shop boards, banners, posters & large format flex printing.</p>
-</div>
-
-<div class="card">
-<h3>Wedding Cards</h3>
-<p>Elegant wedding cards with modern and custom designs.</p>
-</div>
-
-<div class="card">
-<h3>Digital Printing</h3>
-<p>High quality color & black-white digital printing.</p>
-</div>
-
-<div class="card">
-<h3>Photocopy & Stationery</h3>
-<p>Fast photocopy, scanning and office stationery services.</p>
-</div>
+<div class="card">Flex Printing & Shop Boards</div>
+<div class="card">Wedding Cards Printing</div>
+<div class="card">Digital Printing</div>
+<div class="card">Photocopy & Stationery</div>
 </div>
 </section>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<div class="contact-box">
-<p><strong>Address:</strong> Press Market, Shaheed Road, Jhang</p>
-<p><strong>Phone:</strong> 0345-8091910 | 0318-8091909</p>
-</div>
-</section>
-
-<footer>
-© 2026 Madina Flex & Wedding Cards Center
-</footer>
-
-<a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
-💬 WhatsApp Chat
-</a>
-
-</body>
-</html>
-
-
-
-
+<section id="gallery">
+<h2>Photo Gallery</h2>
+<div class="gallery">
+<img src="gallery1.jpg">
+<img src="gallery2.jpg">
+<img src="gallery3.jpg">
+</div
