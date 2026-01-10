@@ -74,7 +74,7 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
 }
 
 .card:hover {
-  transform: scale(1.05); /* Zoom In Effect */
+  transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
@@ -103,7 +103,7 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
   max-height: 80vh;
   object-fit: contain;
   border-radius: 10px;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
 }
 
 .close {
@@ -117,6 +117,7 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
   padding: 16px; color: white; font-weight: bold; font-size: 30px;
   transition: 0.3s;
   user-select: none;
+  text-decoration: none;
 }
 .next { right: -60px; }
 .prev { left: -60px; }
@@ -151,11 +152,6 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p style="text-align:center;">Madina Flex & Wedding Cards Center Jhang is your one-stop shop for all printing needs.</p>
-</section>
-
 <section id="services">
   <h2>Our Services</h2>
   <div class="services">
@@ -168,13 +164,13 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
     <div class="card" onclick="openModal()">
       <i class="fas fa-envelope-open-text" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Wedding Cards</h3>
-      <p>Click to View Slideshow</p>
+      <p>Click to View 2 Designs</p>
     </div>
 
     <div class="card">
       <i class="fas fa-print" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Digital Printing</h3>
-      <p>Visit us for all print solutions</p>
+      <p>All types of printing</p>
     </div>
   </div>
 </section>
@@ -183,26 +179,25 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
     
-    <div class="mySlides"><img src="wedding1.jpg"></div>
-    <div class="mySlides"><img src="wedding2.jpg"></div>
-    <div class="mySlides"><img src="wedding3.jpg"></div>
-    <div class="mySlides"><img src="wedding4.jpg"></div>
+    <div class="mySlides">
+      <img src="wedding1.jpg" alt="Wedding Card 1" onerror="this.src='https://via.placeholder.com/600x400?text=Check+Image+Name+1'">
+    </div>
+    <div class="mySlides">
+      <img src="wedding2.jpg" alt="Wedding Card 2" onerror="this.src='https://via.placeholder.com/600x400?text=Check+Image+Name+2'">
+    </div>
+
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
 </div>
 
 <section id="contact">
-  <div style="text-align:center; background:#fff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+  <div style="text-align:center; background:#fff; padding:30px; border-radius:15px;">
     <h2>Contact Us</h2>
-    <p><i class="fas fa-map-marker-alt"></i> Press Market, Shaheed Road, Jhang</p>
-    <p><i class="fas fa-phone"></i> 0345-8091910</p>
+    <p>Press Market, Shaheed Road, Jhang</p>
+    <p>0345-8091910</p>
   </div>
 </section>
-
-<footer>
-    <p>© 2026 Madina Flex & Wedding Cards Center</p>
-</footer>
 
 <a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
   <i class="fab fa-whatsapp"></i>
@@ -235,7 +230,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
 }
 
-// Close modal when clicking outside of the image
 window.onclick = function(event) {
   var modal = document.getElementById("myModal");
   if (event.target == modal) {
