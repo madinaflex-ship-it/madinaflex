@@ -21,222 +21,74 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Header */
+/* ===== HEADER WITH PNG ZOOM SLIDESHOW ===== */
 header {
-  background: var(--primary-color);
-  padding: 60px 20px;
-  text-align: center;
-  color: #fff;
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header h1 {
+.header-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transform: scale(1);
+  /* زوم اور مدھم ہونے کی اینیمیشن */
+  transition: opacity 1s ease-in-out, transform 7s linear;
+  object-fit: cover;
+}
+
+.header-slide.active {
+  opacity: 0.7;
+  transform: scale(1.15); /* Slow Zoom Effect */
+  z-index: 1;
+}
+
+.header-text {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  display: none; /* شروع میں غائب رہے گا */
+  animation: slideUpFade 1.5s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 6vw, 45px);
+  font-size: clamp(28px, 7vw, 50px);
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
   margin: 0;
 }
 
-/* Navigation */
-nav {
-  background: #fff;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+/* ===== NAVIGATION ===== */
+nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+nav a { margin: 0 15px; text-decoration: none; color: var(--primary-color); font-weight: 600; }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* Services Section */
+/* ===== SECTIONS ===== */
 section { max-width: 1100px; margin: auto; padding: 50px 20px; }
 h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.card { background: #fff; padding: 40px 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
+.card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  padding: 40px 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* Slideshow Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.95);
-}
-
-.modal-content {
-  position: relative;
-  margin: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 90%;
-  max-width: 600px;
-}
-
+/* ===== MODAL SLIDESHOW ===== */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
+.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 600px; }
 .mySlides { display: none; text-align: center; }
-.mySlides img {
-  width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 3px solid #fff;
-}
+.mySlides img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 10px; border: 3px solid #fff; }
+.close { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; color: white; font-weight: bold; font-size: 30px; transition: 0.3s; user-select: none; text-decoration: none; }
+.next { right: -60px; } .prev { left: -60px; }
 
-.close {
-  position: absolute; top: -50px; right: 0;
-  color: white; font-size: 40px; cursor: pointer;
-}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute; top: 50%;
-  padding: 16px; color: white; font-weight: bold; font-size: 30px;
-  transition: 0.3s;
-  user-select: none;
-  text-decoration: none;
-}
-.next { right: -60px; }
-.prev { left: -60px; }
-
-/* WhatsApp Button */
-.whatsapp {
-  position: fixed; bottom: 25px; right: 25px;
-  background: #25D366; color: #fff;
-  width: 60px; height: 60px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 30px; text-decoration: none; z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Mobile Adjustments */
-@media(max-width: 768px) {
-    .next { right: 5px; }
-    .prev { left: 5px; }
-    .modal-content { width: 95%; }
-}
-</style>
-</head>
-<body>
-
-<header>
-    <h1>Madina Flex & Wedding Cards Center</h1>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">
-      <i class="fas fa-layer-group" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
-      <h3>Flex Printing</h3>
-      <p>High Quality Shop Boards</p>
-    </div>
-    
-    <div class="card" onclick="openModal()">
-      <i class="fas fa-envelope-open-text" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
-      <h3>Wedding Cards</h3>
-      <p>Click to View 2 Designs</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-print" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
-      <h3>Digital Printing</h3>
-      <p>All types of printing</p>
-    </div>
-  </div>
-</section>
-
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    
-    <div class="mySlides">
-      <img src="wedding1.jpg" alt="Wedding Card 1" onerror="this.src='https://via.placeholder.com/600x400?text=Check+Image+Name+1'">
-    </div>
-    <div class="mySlides">
-      <img src="wedding2.jpg" alt="Wedding Card 2" onerror="this.src='https://via.placeholder.com/600x400?text=Check+Image+Name+2'">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-</div>
-
-<section id="contact">
-  <div style="text-align:center; background:#fff; padding:30px; border-radius:15px;">
-    <h2>Contact Us</h2>
-    <p>Press Market, Shaheed Road, Jhang</p>
-    <p>0345-8091910</p>
-  </div>
-</section>
-
-<a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-var slideIndex = 1;
-
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-  showSlides(slideIndex);
-}
-
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
-
-window.onclick = function(event) {
-  var modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-</body>
-</html>
+/* ===== FOOTER & WHATSAPP ===== */
+.whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; z-index: 1000;
