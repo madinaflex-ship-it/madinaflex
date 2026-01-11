@@ -21,10 +21,10 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ===== ہیڈر ڈیزائن (تصویر چھوٹی اور مکمل نظر آئے گی) ===== */
+/* ===== ہیڈر ڈیزائن (تصویر مکمل فٹ ہوگی) ===== */
 header {
   position: relative;
-  height: 300px; /* اونچائی تھوڑی کم کی تاکہ موبائل پر بھی صحیح لگے */
+  height: 400px; /* تصویر کو بہتر دکھانے کے لیے اونچائی بڑھائی گئی ہے */
   overflow: hidden;
   background: #000;
   display: flex;
@@ -38,9 +38,6 @@ header {
   width: 100%; height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .slide.active {
@@ -48,53 +45,114 @@ header {
   z-index: 1;
 }
 
-/* تصویر کو مکمل دکھانے کے لیے سیٹنگ */
+/* تصویر اب پوری جگہ بھر دے گی اور سائیڈز خالی نہیں ہوں گی */
 .slide img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* اس سے تصویر کٹے گی نہیں */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* تصویر کو مکمل فٹ کرنے کے لیے */
+  object-position: center;
 }
 
-/* دکان کا نام (الگ اسکرین) */
+/* دکان کا نام والی سلائیڈ */
 .text-slide {
   background: var(--primary-color);
   color: #fff;
   text-align: center;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-slide h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 6vw, 45px);
+  font-size: clamp(24px, 8vw, 50px);
   margin: 0;
+  padding: 0 20px;
 }
 
 /* ===== نیویگیشن ===== */
-nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+nav { 
+  background: #fff; 
+  padding: 15px; 
+  text-align: center; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
 nav a { margin: 0 15px; text-decoration: none; color: var(--primary-color); font-weight: 600; }
 
 /* ===== سروسز سیکشن ===== */
 section { max-width: 1100px; margin: auto; padding: 50px 20px; }
 h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.card { background: #fff; padding: 40px 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
-.card:hover { transform: scale(1.05); }
+.services { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 25px; 
+}
+.card { 
+  background: #fff; 
+  padding: 40px 20px; 
+  border-radius: 15px; 
+  text-align: center; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+  cursor: pointer; 
+  transition: 0.3s; 
+}
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
 /* ===== ویڈنگ کارڈز پاپ اپ (Modal) ===== */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
-.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 500px; text-align: center;}
+.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 500px; text-align: center; }
 .mySlides { display: none; }
-.mySlides img { width: 100%; border-radius: 10px; border: 3px solid #fff; }
+.mySlides img { width: 100%; border-radius: 10px; border: 4px solid #fff; }
 
 .close { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
-.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; color: #fff; font-weight: bold; font-size: 24px; user-select: none; text-decoration: none; background: rgba(0,0,0,0.5); border-radius: 5px;}
-.next { right: -50px; } 
-.prev { left: -50px; }
+.prev, .next { 
+  cursor: pointer; 
+  position: absolute; 
+  top: 50%; 
+  padding: 16px; 
+  color: #fff; 
+  font-weight: bold; 
+  font-size: 24px; 
+  user-select: none; 
+  background: rgba(0,0,0,0.6); 
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+}
+.next { right: -60px; } 
+.prev { left: -60px; }
+
+/* ===== کانٹیکٹ سیکشن (2 نمبرز کے ساتھ) ===== */
+#contact-box {
+  text-align: center; 
+  background: #fff; 
+  padding: 40px 20px; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.contact-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.contact-item { font-size: 18px; color: #333; font-weight: 600; text-decoration: none;}
+.contact-item i { color: var(--primary-color); margin-right: 8px; }
 
 /* واٹس ایپ بٹن */
 .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-@media(max-width: 768px) { .next { right: 0; } .prev { left: 0; } header { height: 200px; } }
+@media(max-width: 768px) { 
+  .next { right: 0; } .prev { left: 0; } 
+  header { height: 250px; }
+  .contact-numbers { flex-direction: column; gap: 10px; }
+}
 </style>
 </head>
 <body>
@@ -118,21 +176,21 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
   <h2>Our Services</h2>
   <div class="services">
     <div class="card">
-      <i class="fas fa-layer-group" style="font-size:40px; color:var(--primary-color);"></i>
+      <i class="fas fa-layer-group" style="font-size:45px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Flex Printing</h3>
-      <p>High Quality Boards</p>
+      <p>High Quality Shop Boards & Banners</p>
     </div>
     
     <div class="card" onclick="openModal()">
-      <i class="fas fa-envelope-open-text" style="font-size:40px; color:var(--primary-color);"></i>
+      <i class="fas fa-envelope-open-text" style="font-size:45px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Wedding Cards</h3>
-      <p>Click to View 2 Designs</p>
+      <p>Beautiful Wedding Card Designs</p>
     </div>
 
     <div class="card">
-      <i class="fas fa-print" style="font-size:40px; color:var(--primary-color);"></i>
+      <i class="fas fa-print" style="font-size:45px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Digital Printing</h3>
-      <p>Visit us for all solutions</p>
+      <p>Laser & Multi-color Printing Solutions</p>
     </div>
   </div>
 </section>
@@ -148,9 +206,15 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
   </div>
 </div>
 
-<section id="contact" style="text-align:center;">
+<section id="contact">
+  <div id="contact-box">
     <h2>Contact Us</h2>
-    <p>Press Market, Shaheed Road, Jhang | 0345-8091910</p>
+    <p><i class="fas fa-map-marker-alt" style="color:var(--primary-color);"></i> Press Market, Shaheed Road, Jhang</p>
+    
+    <div class="contact-numbers">
+      <a href="tel:03458091910" class="contact-item"><i class="fas fa-phone-alt"></i> 0345-8091910</a>
+      <a href="tel:0318-8091909" class="contact-item"><i class="fas fa-phone-alt"></i> 0318-8091909</a> </div>
+  </div>
 </section>
 
 <a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
@@ -158,7 +222,7 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
 </a>
 
 <script>
-// --- ہیڈر سلائیڈ شو اسکرپٹ ---
+// --- ہیڈر سلائیڈ شو ---
 let currentHeaderSlide = 0;
 const headerSlides = document.querySelectorAll('.slide');
 
@@ -167,41 +231,22 @@ function nextHeaderSlide() {
     currentHeaderSlide = (currentHeaderSlide + 1) % headerSlides.length;
     headerSlides[currentHeaderSlide].classList.add('active');
 }
-setInterval(nextHeaderSlide, 4000); // 4 سیکنڈ بعد بدلے گی
+setInterval(nextHeaderSlide, 4500); // 4.5 سیکنڈ کا وقفہ
 
-// --- ویڈنگ کارڈز پاپ اپ اسکرپٹ ---
+// --- ویڈنگ کارڈز پاپ اپ ---
 var modalSlideIndex = 1;
-
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-  showModalSlides(modalSlideIndex);
-}
-
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-function plusSlides(n) {
-  showModalSlides(modalSlideIndex += n);
-}
-
+function openModal() { document.getElementById("myModal").style.display = "block"; showModalSlides(modalSlideIndex); }
+function closeModal() { document.getElementById("myModal").style.display = "none"; }
+function plusSlides(n) { showModalSlides(modalSlideIndex += n); }
 function showModalSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   if (n > slides.length) {modalSlideIndex = 1}
   if (n < 1) {modalSlideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
+  for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
   slides[modalSlideIndex-1].style.display = "block";
 }
-
-// اگر تصویر کے باہر کلک کریں تو بند ہو جائے
-window.onclick = function(event) {
-  if (event.target == document.getElementById("myModal")) {
-    closeModal();
-  }
-}
+window.onclick = function(event) { if (event.target == document.getElementById("myModal")) closeModal(); }
 </script>
 
 </body>
