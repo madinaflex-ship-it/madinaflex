@@ -21,10 +21,10 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ===== HEADER WITH PNG ZOOM SLIDESHOW ===== */
+/* ===== HEADER SLIDESHOW SETTINGS ===== */
 header {
   position: relative;
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   background: #000;
   display: flex;
@@ -32,78 +32,87 @@ header {
   justify-content: center;
 }
 
-.header-slide {
+/* تصاویر اور ٹیکسٹ سلائیڈ کا مشترکہ ڈیزائن */
+.slide {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   opacity: 0;
-  transform: scale(1);
-  /* زوم اور مدھم ہونے کی اینیمیشن */
-  transition: opacity 1s ease-in-out, transform 7s linear;
-  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-slide.active {
-  opacity: 0.7;
-  transform: scale(1.15); /* Slow Zoom Effect */
+.slide.active {
+  opacity: 1;
   z-index: 1;
 }
 
-.header-text {
-  position: relative;
-  z-index: 10;
-  text-align: center;
+/* تصاویر کا ڈیزائن اور زوم ایفیکٹ */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 6s linear;
+}
+
+.slide.active img {
+  transform: scale(1.15); /* زوم ایفیکٹ صرف ایکٹو تصویر پر */
+}
+
+/* آخر میں آنے والا نام (Text Slide) */
+.text-slide {
+  background: var(--primary-color); /* نام والی اسکرین کا بیک گراؤنڈ کلر */
   color: #fff;
-  display: none; /* شروع میں غائب رہے گا */
-  animation: slideUpFade 1.5s ease-out forwards;
+  text-align: center;
+  padding: 20px;
 }
 
-@keyframes slideUpFade {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.header-text h1 {
+.text-slide h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 7vw, 50px);
-  text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
+  font-size: clamp(28px, 8vw, 55px);
   margin: 0;
+  animation: slideIn 1.5s ease-out;
 }
 
-/* ===== NAVIGATION ===== */
+@keyframes slideIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== باقی ویب سائٹ کا ڈیزائن ===== */
 nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
 nav a { margin: 0 15px; text-decoration: none; color: var(--primary-color); font-weight: 600; }
-
-/* ===== SECTIONS ===== */
 section { max-width: 1100px; margin: auto; padding: 50px 20px; }
 h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 .card { background: #fff; padding: 40px 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
 .card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-/* ===== MODAL SLIDESHOW ===== */
+/* Modal Slideshow */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
 .modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 600px; }
 .mySlides { display: none; text-align: center; }
 .mySlides img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 10px; border: 3px solid #fff; }
 .close { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
-.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; color: white; font-weight: bold; font-size: 30px; transition: 0.3s; user-select: none; text-decoration: none; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; color: white; font-weight: bold; font-size: 30px; user-select: none; text-decoration: none; }
 .next { right: -60px; } .prev { left: -60px; }
 
-/* ===== FOOTER & WHATSAPP ===== */
 .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-@media(max-width: 768px) { .next { right: 5px; } .prev { left: 5px; } header { height: 250px; } }
+@media(max-width: 768px) { .next { right: 5px; } .prev { left: 5px; } header { height: 300px; } }
 </style>
 </head>
 <body>
 
 <header id="mainHeader">
-    <img src="h1.png" class="header-slide active">
-    <img src="h2.png" class="header-slide">
-    <img src="h3.png" class="header-slide">
+    <div class="slide active"><img src="h1.png"></div>
+    <div class="slide"><img src="h2.png"></div>
+    <div class="slide"><img src="h3.png"></div>
 
-    <div class="header-text" id="shopName">
+    <div class="slide text-slide">
         <h1>Madina Flex & Wedding Cards Center</h1>
     </div>
 </header>
@@ -132,7 +141,7 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
     <div class="card">
       <i class="fas fa-print" style="font-size:40px; color:var(--primary-color); margin-bottom:15px;"></i>
       <h3>Digital Printing</h3>
-      <p>All printing solutions</p>
+      <p>Visit us for all solutions</p>
     </div>
   </div>
 </section>
@@ -157,21 +166,19 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
 </a>
 
 <script>
-// --- ہیڈر سلائیڈ شو ---
-let currentHeaderSlide = 0;
-const headerSlides = document.querySelectorAll('.header-slide');
+// --- ہیڈر سلائیڈ شو کنٹرول ---
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
 
-function nextHeaderSlide() {
-    headerSlides[currentHeaderSlide].classList.remove('active');
-    currentHeaderSlide = (currentHeaderSlide + 1) % headerSlides.length;
-    headerSlides[currentHeaderSlide].classList.add('active');
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
 }
-setInterval(nextHeaderSlide, 4000); // 4 سیکنڈ بعد سلائیڈ بدلے گی
 
-// --- 5 سیکنڈ بعد نام دکھانا ---
-setTimeout(function() {
-    document.getElementById('shopName').style.display = 'block';
-}, 5000);
+// ہر 4 سیکنڈ بعد سلائیڈ بدلے گی
+// h1 -> h2 -> h3 -> Shop Name Screen -> (پھر دوبارہ h1)
+setInterval(nextSlide, 4000);
 
 // --- ویڈنگ کارڈز سلائیڈ شو ---
 var slideIndex = 1;
@@ -179,12 +186,6 @@ function openModal() { document.getElementById("myModal").style.display = "block
 function closeModal() { document.getElementById("myModal").style.display = "none"; }
 function plusSlides(n) { showSlides(slideIndex += n); }
 function showSlides(n) {
-  var i; var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1} if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-  slides[slideIndex-1].style.display = "block";
-}
-</script>
-
-</body>
-</html>
+  var i; var slidesModal = document.getElementsByClassName("mySlides");
+  if (n > slidesModal.length) {slideIndex = 1} if (n < 1) {slideIndex = slidesModal.length}
+  for (i = 0; i < slidesModal.length; i++) { slidesModal[i].style.display = "
