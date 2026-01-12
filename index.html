@@ -5,38 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madina Flex & Wedding Cards Center</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 :root {
-  --primary: #0f766e;
-  --secondary: #14b8a6;
-  --accent: #f59e0b; /* Gold/Yellow for highlights */
-  --bg: #f8fafc;
-  --glass: rgba(255, 255, 255, 0.8);
+  --brand-color: #0d9488; /* Professional Teal */
+  --gold: #d4af37;
+  --dark: #111827;
+  --light: #f9fafb;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--bg);
-  color: #1e293b;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
 }
 
-/* ===== MODERN HEADER ===== */
+/* ===== PROFESSIONAL HEADER (COMPACT) ===== */
 header {
   position: relative;
-  height: 450px;
-  background: #000;
+  height: 320px; /* آپ کی فرمائش پر سائز چھوٹا کر دیا گیا ہے */
+  background: radial-gradient(circle, #222, #000);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-bottom: 4px solid var(--brand-color);
 }
 
 .slide {
@@ -44,168 +42,173 @@ header {
   top: 0; left: 0;
   width: 100%; height: 100%;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease-in-out;
 }
 
 .slide.active { opacity: 1; z-index: 1; }
 
 .slide img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.7);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* اس سے تصویر مکمل اور واضح نظر آئے گی */
+  padding: 10px;
 }
 
 .text-slide {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(45deg, var(--brand-color), #0f172a);
   color: #fff;
   z-index: 10;
 }
 
 .text-slide h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 8vw, 60px);
+  font-size: clamp(24px, 6vw, 48px);
   text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  padding: 20px;
+  text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
 }
 
-/* ===== GLASSY NAV BAR ===== */
+/* ===== NAV BAR ===== */
 nav {
   position: sticky;
   top: 0;
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 12px 0;
   z-index: 1000;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav a {
-  margin: 0 20px;
+  margin: 0 15px;
   text-decoration: none;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 15px;
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
+  letter-spacing: 1px;
   transition: 0.3s;
 }
 
-nav a:hover { color: var(--accent); }
+nav a:hover { color: var(--brand-color); }
 
-/* ===== SECTION STYLING ===== */
-section { max-width: 1200px; margin: auto; padding: 80px 20px; }
+/* ===== SERVICES SECTION ===== */
+section { max-width: 1200px; margin: auto; padding: 60px 20px; }
 
-.section-title {
+.section-head {
   text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
   margin-bottom: 50px;
+}
+
+.section-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--brand-color);
   position: relative;
+  display: inline-block;
 }
 
-.section-title::after {
+.section-head h2::after {
   content: '';
-  width: 60px; height: 4px;
-  background: var(--accent);
-  position: absolute; bottom: -10px; left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: var(--gold);
+  margin: 8px auto;
 }
 
-/* ===== UPGRADED SERVICE CARDS ===== */
-.services {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 25px;
 }
 
-.card {
+.service-card {
   background: #fff;
-  padding: 50px 30px;
-  border-radius: 20px;
+  padding: 40px 30px;
+  border-radius: 12px;
   text-align: center;
-  transition: all 0.4s ease;
-  border: 1px solid #e2e8f0;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; width: 100%; height: 5px;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-color: var(--brand-color);
 }
 
-.card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border-color: var(--secondary);
-}
-
-.card i {
-  font-size: 50px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.service-card i {
+  font-size: 45px;
+  color: var(--brand-color);
   margin-bottom: 20px;
 }
 
-.card h3 { font-size: 22px; margin-bottom: 15px; color: #0f172a; }
-.card p { color: #64748b; line-height: 1.6; }
+.service-card h3 { margin-bottom: 12px; font-size: 20px; }
+.service-card p { color: #666; font-size: 15px; }
 
-/* ===== WEDDING MODAL (40 IMAGES) ===== */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 550px; }
-.mySlides { display: none; animation: zoomIn 0.5s; }
-.mySlides img { width: 100%; border-radius: 15px; border: 5px solid #fff; }
+/* ===== MODAL / GALLERY ===== */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 95%; max-width: 500px; }
+.mySlides { display: none; text-align: center; }
+.mySlides img { width: 100%; border-radius: 8px; border: 3px solid var(--brand-color); }
 
-@keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
-
-.close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 40px; cursor: pointer; }
+.close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 35px; cursor: pointer; }
 .prev, .next { 
-  cursor: pointer; position: absolute; top: 50%; padding: 15px; color: #fff; background: var(--primary);
-  border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; position: absolute; top: 50%; padding: 12px; color: #fff; 
+  background: var(--brand-color); border-radius: 50%; width: 45px; height: 45px;
+  display: flex; align-items: center; justify-content: center; text-decoration: none;
 }
-.next { right: -60px; } .prev { left: -60px; }
+.next { right: -55px; } .prev { left: -55px; }
 
-/* ===== FOOTER & CONTACT ===== */
+/* ===== CONTACT FOOTER ===== */
 footer {
-  background: #0f172a;
+  background: var(--dark);
   color: #fff;
   padding: 60px 20px 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
   text-align: center;
 }
 
-.contact-grid {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+.footer-box h4 { color: var(--gold); margin-bottom: 20px; font-size: 18px; text-transform: uppercase; }
+.footer-box p, .footer-box a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; }
+.footer-box i { margin-right: 10px; color: var(--brand-color); }
+
+.bottom-bar {
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  font-size: 13px;
+  color: #777;
 }
 
-.contact-info i { color: var(--accent); font-size: 24px; margin-bottom: 10px; display: block; }
-.contact-info a { color: #cbd5e1; text-decoration: none; font-size: 18px; }
-
-.copyright { border-top: 1px solid #1e293b; padding-top: 20px; font-size: 14px; color: #94a3b8; }
-
-/* Whatsapp */
+/* WhatsApp Floating */
 .whatsapp {
   position: fixed; bottom: 30px; right: 30px;
-  background: #25D366; color: #fff;
-  width: 65px; height: 65px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 35px; z-index: 1000; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+  background: #25D366; color: #fff; width: 60px; height: 60px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 30px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: 0.3s;
 }
-.whatsapp:hover { transform: scale(1.1) rotate(10deg); }
+.whatsapp:hover { transform: scale(1.1); }
 
 @media(max-width: 768px) {
-  header { height: 300px; }
-  .next { right: 0; } .prev { left: 0; }
-  .contact-grid { gap: 20px; }
+  header { height: 220px; }
+  .next { right: 5px; } .prev { left: 5px; }
+  .modal-content { max-width: 90%; }
 }
 </style>
 </head>
@@ -221,30 +224,32 @@ footer {
 </header>
 
 <nav>
-    <a href="#services">Services</a>
-    <a href="#wedding-cards">Gallery</a>
-    <a href="#contact">Contact</a>
+    <a href="#services">Our Services</a>
+    <a href="#wedding-cards">Design Gallery</a>
+    <a href="#contact">Contact Us</a>
 </nav>
 
 <section id="services">
-  <h2 class="section-title">Premium Services</h2>
-  <div class="services">
-    <div class="card">
+  <div class="section-head">
+    <h2>Our Specialities</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
       <i class="fas fa-print"></i>
-      <h3>Flex Printing</h3>
-      <p>Highest quality flex printing for shop boards, banners, and Panaflex with vibrant colors.</p>
+      <h3>Professional Flex</h3>
+      <p>High-resolution printing for shop boards, banners, and backlits.</p>
     </div>
     
-    <div class="card" onclick="openModal()" id="wedding-cards">
-      <i class="fas fa-heart"></i>
+    <div class="service-card" onclick="openModal()" id="wedding-cards">
+      <i class="fas fa-gem"></i>
       <h3>Wedding Cards</h3>
-      <p>Exclusive and royal wedding card designs. Click to explore our 40+ latest collections.</p>
+      <p>Luxury and traditional card designs. Click to view 40+ designs.</p>
     </div>
 
-    <div class="card">
-      <i class="fas fa-palette"></i>
-      <h3>Digital Graphics</h3>
-      <p>Creative graphic designing and multi-color digital printing for all your business needs.</p>
+    <div class="service-card">
+      <i class="fas fa-magic"></i>
+      <h3>Graphic Design</h3>
+      <p>Creative logos and branding solutions for your business.</p>
     </div>
   </div>
 </section>
@@ -259,20 +264,23 @@ footer {
 </div>
 
 <footer id="contact">
-    <h2 class="section-title" style="color:#fff; border-color: #fff;">Get In Touch</h2>
-    <div class="contact-grid">
-        <div class="contact-info">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Press Market, Shaheed Road, Jhang</p>
+    <div class="footer-content">
+        <div class="footer-box">
+            <h4>About Us</h4>
+            <p>Your one-stop solution for high-quality printing and creative design in Jhang.</p>
         </div>
-        <div class="contact-info">
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:03458091910">0345-8091910</a><br>
-            <a href="tel:03001234567">0300-1234567</a>
+        <div class="footer-box">
+            <h4>Location</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Press Market, Shaheed Road, Jhang</p>
+        </div>
+        <div class="footer-box">
+            <h4>Contact Info</h4>
+            <a href="tel:03458091910"><i class="fas fa-phone"></i> 0345-8091910</a>
+            <a href="tel:0318-8091909"><i class="fas fa-phone"></i> 0318-8091909</a>
         </div>
     </div>
-    <div class="copyright">
-        &copy; 2024 Madina Flex Center. Designed with ❤️ for Quality.
+    <div class="bottom-bar">
+        &copy; 2024 Madina Flex Center | Premium Printing Services
     </div>
 </footer>
 
@@ -281,27 +289,26 @@ footer {
 </a>
 
 <script>
-// --- Header Slider ---
-let curH = 0;
+// --- Header Logic ---
+let hIdx = 0;
 const hSlides = document.querySelectorAll('.slide');
 setInterval(() => {
-    hSlides[curH].classList.remove('active');
-    curH = (curH + 1) % hSlides.length;
-    hSlides[curH].classList.add('active');
-}, 5000);
+    hSlides[hIdx].classList.remove('active');
+    hIdx = (hIdx + 1) % hSlides.length;
+    hSlides[hIdx].classList.add('active');
+}, 4000);
 
-// --- 40 Images Generator ---
+// --- Gallery Logic (40 Images) ---
 const container = document.getElementById('slides-container');
-const totalImages = 40;
-for (let i = 1; i <= totalImages; i++) {
-    const div = document.createElement('div');
-    div.className = 'mySlides';
-    div.innerHTML = `<img src="wedding${i}.jpg" loading="lazy">`;
-    container.appendChild(div);
+const totalImgs = 40;
+for (let i = 1; i <= totalImgs; i++) {
+    const d = document.createElement('div');
+    d.className = 'mySlides';
+    d.innerHTML = `<img src="wedding${i}.jpg" loading="lazy">`;
+    container.appendChild(d);
 }
 
-// --- Gallery Controls ---
-var sIdx = 1;
+let sIdx = 1;
 function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); }
 function closeModal() { document.getElementById("myModal").style.display = "none"; }
 function plusSlides(n) { show(sIdx += n); }
