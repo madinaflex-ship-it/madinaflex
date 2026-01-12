@@ -20,7 +20,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--light); color: var(--dark); scroll-behavior: smooth; }
 
-        /* ===== HEADER (FIT & SLIDING) ===== */
+        /* ===== HEADER SLIDESHOW (KEEPING ORIGINAL SETTINGS) ===== */
         header {
             position: relative; height: 380px; background: #000; overflow: hidden;
             display: flex; align-items: center; justify-content: center;
@@ -42,36 +42,27 @@
         nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* ===== WHY CHOOSE US (NEW) ===== */
-        .why-choose-us { padding: 80px 20px; background: white; text-align: center; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
-        .feature-item { padding: 30px; border-radius: 20px; background: var(--light); transition: 0.3s; border: 1px solid #eee; }
-        .feature-item:hover { transform: translateY(-10px); border-color: var(--gold); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .feature-item i { font-size: 45px; color: var(--primary); margin-bottom: 20px; }
-
-        /* ===== SPECIAL FEATURES (NEW) ===== */
-        .special-features { padding: 80px 20px; background: var(--dark); color: white; text-align: center; }
-        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
-        .spec-box { padding: 30px; border: 1px border rgba(255,255,255,0.1); border-radius: 15px; background: rgba(255,255,255,0.05); transition: 0.3s; }
-        .spec-box:hover { background: var(--primary); }
-
         /* ===== STATS SECTION ===== */
         .stats-grid { padding: 60px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; background: #fff; border-bottom: 1px solid #eee; }
         .stat-card i { font-size: 35px; color: var(--gold); margin-bottom: 15px; }
-        .stat-card h3 { font-size: 32px; font-weight: 700; }
 
-        /* ===== SERVICES ===== */
-        section { max-width: 1200px; margin: auto; padding: 80px 20px; }
-        .sec-head { text-align: center; margin-bottom: 50px; }
-        .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--dark); }
+        /* ===== SECTION HEADINGS ===== */
+        .sec-head { text-align: center; margin-bottom: 50px; padding: 0 20px; }
+        .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--dark); }
         .line { width: 80px; height: 5px; background: var(--primary); margin: 15px auto; border-radius: 5px; }
 
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .s-card { background: white; padding: 40px; border-radius: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; border-bottom: 5px solid transparent; }
-        .s-card:hover { transform: translateY(-10px); border-bottom-color: var(--primary); }
-        .s-card i { font-size: 50px; color: var(--primary); margin-bottom: 20px; }
+        /* ===== FEATURES GRID ===== */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; padding: 20px; }
+        .feature-box { background: #fff; padding: 40px; border-radius: 20px; text-align: center; transition: 0.4s; border: 1px solid #eee; }
+        .feature-box:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--primary); }
+        .feature-box i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
 
-        /* ===== CONTACT & MAP ===== */
+        /* ===== REVIEWS SECTION ===== */
+        .reviews { background: var(--dark); color: white; padding: 80px 20px; text-align: center; }
+        .review-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* ===== CONTACT (NEW ADDRESS) ===== */
+        .contact-section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         .contact-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
         .map-side { height: 450px; }
         .map-side iframe { width: 100%; height: 100%; border: 0; }
@@ -81,11 +72,9 @@
 
         /* ===== WHATSAPP & MODAL ===== */
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: grid; place-items: center; font-size: 35px; z-index: 1000; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); text-decoration: none; }
-        
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-        .modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 450px; }
+        .modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 450px; text-align: center; }
         .mySlides img { width: 100%; border-radius: 20px; border: 4px solid #fff; }
-        .close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 40px; cursor: pointer; }
 
         footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
     </style>
@@ -93,81 +82,62 @@
 <body>
 
     <header id="home">
-        <div class="slide active"><img src="h1.png" alt="Madina Flex 1"></div>
-        <div class="slide"><img src="h2.png" alt="Madina Flex 2"></div>
-        <div class="slide"><img src="h3.png" alt="Madina Flex 3"></div>
+        <div class="slide active"><img src="h1.png" alt="Slide 1"></div>
+        <div class="slide"><img src="h2.png" alt="Slide 2"></div>
+        <div class="slide"><img src="h3.png" alt="Slide 3"></div>
     </header>
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#why-choose">Why Us</a>
+        <a href="#why-us">Why Us</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="stats-grid">
-        <div class="stat-card"><i class="fas fa-users"></i><h3>5000+</h3><p>Happy Clients</p></div>
-        <div class="stat-card"><i class="fas fa-certificate"></i><h3>10+</h3><p>Years Experience</p></div>
-        <div class="stat-card"><i class="fas fa-clock"></i><h3>Fast</h3><p>Quick Delivery</p></div>
-        <div class="stat-card"><i class="fas fa-check-double"></i><h3>100%</h3><p>Quality Proof</p></div>
+        <div class="stat-card"><i class="fas fa-users"></i><h3>5000+</h3><p>Satisfied Clients</p></div>
+        <div class="stat-card"><i class="fas fa-award"></i><h3>Top Rated</h3><p>In Jhang Market</p></div>
+        <div class="stat-card"><i class="fas fa-history"></i><h3>10+ Years</h3><p>Experience</p></div>
+        <div class="stat-card"><i class="fas fa-bolt"></i><h3>Instant</h3><p>Design Proofing</p></div>
     </div>
 
-    <section class="why-choose-us" id="why-choose">
-        <div class="sec-head"><h2>Why Choose Madina Flex?</h2><div class="line"></div></div>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <i class="fas fa-palette"></i>
-                <h4>Unique Designs</h4>
-                <p>We create custom designs that make your brand stand out in the market.</p>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-fill-drip"></i>
-                <h4>Premium Ink</h4>
-                <p>We use high-grade outdoor inks that don't fade in sunlight or rain.</p>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-tags"></i>
-                <h4>Wholesale Rates</h4>
-                <p>Get the best printing quality at the most affordable prices in Jhang.</p>
-            </div>
+    <section id="why-us">
+        <div class="sec-head"><h2>Professional Features</h2><div class="line"></div></div>
+        <div class="grid-container">
+            <div class="feature-box"><i class="fas fa-microchip"></i><h4>HD Printing</h4><p>High resolution prints for crystal clear banners.</p></div>
+            <div class="feature-box"><i class="fas fa-truck"></i><h4>Delivery Service</h4><p>Safe and fast delivery service across the region.</p></div>
+            <div class="feature-box"><i class="fas fa-wallet"></i><h4>Wholesale Rates</h4><p>Premium quality at the most affordable prices.</p></div>
         </div>
     </section>
 
-    <div class="special-features">
-        <div class="sec-head"><h2 style="color: white;">Our Advanced Features</h2><div class="line" style="background: var(--gold);"></div></div>
-        <div class="spec-grid">
-            <div class="spec-box"><i class="fas fa-bolt"></i><h4 style="margin: 10px 0;">Urgent Printing</h4><p>Get your small flex orders ready within 1 hour.</p></div>
-            <div class="spec-box"><i class="fas fa-cloud-upload"></i><h4 style="margin: 10px 0;">Online Orders</h4><p>Send us your design on WhatsApp, we print & deliver.</p></div>
-            <div class="spec-box"><i class="fas fa-vector-square"></i><h4 style="margin: 10px 0;">Vector Tracing</h4><p>We convert your low-quality logos into high-quality prints.</p></div>
-        </div>
-    </div>
-
-    <section id="services">
-        <div class="sec-head"><h2>Our Services</h2><div class="line"></div></div>
-        <div class="service-grid">
-            <div class="s-card"><i class="fas fa-print"></i><h3>Panaflex Printing</h3><p>Large scale banners, shop boards, and event backdrops.</p></div>
-            <div class="s-card" onclick="openModal()" style="border: 2px solid var(--gold);">
-                <i class="fas fa-ring"></i>
-                <h3>Wedding Cards</h3>
-                <p>Click to view 40+ Royal & Premium Wedding Card Designs.</p>
-            </div>
-            <div class="s-card"><i class="fas fa-address-card"></i><h3>Business Cards</h3><p>Professional visiting cards with premium finishing.</p></div>
+    <section id="services" style="background: #f1f5f9; padding: 80px 0;">
+        <div class="sec-head"><h2>Our Expert Services</h2><div class="line"></div></div>
+        <div class="grid-container">
+            <div class="feature-box"><i class="fas fa-print"></i><h4>Panaflex</h4><p>Shop boards, banners and standees.</p></div>
+            <div class="feature-box" onclick="openModal()" style="cursor: pointer; border: 2px solid var(--gold);"><i class="fas fa-envelope-open-text"></i><h4>Wedding Cards</h4><p>Click to see 40+ Royal Designs.</p></div>
+            <div class="feature-box"><i class="fas fa-id-card"></i><h4>Visiting Cards</h4><p>Professional business branding.</p></div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="sec-head"><h2>Visit Our Shop</h2><div class="line"></div></div>
+    <div class="reviews">
+        <div class="sec-head"><h2 style="color: white;">Customer Reviews</h2><div class="line" style="background: var(--gold);"></div></div>
+        <div class="grid-container">
+            <div class="review-card"><p>"Excellent printing quality and very cooperative staff."</p><br><strong>- Ahmed Jhang</strong></div>
+            <div class="review-card"><p>"Best wedding cards collection in Jhang Press Market."</p><br><strong>- Bilal Raza</strong></div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact-section">
+        <div class="sec-head"><h2>Find Our Studio</h2><div class="line"></div></div>
         <div class="contact-box">
-            <div class="map-side">
-                <iframe src="http://googleusercontent.com/maps.google.com/7" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <div class="map-side"><iframe src="http://googleusercontent.com/maps.google.com/7"></iframe></div>
             <div class="info-side">
-                <div class="info-row"><i class="fas fa-location-arrow"></i><p><strong>Location:</strong><br>Press Market, Shaheed Road, Jhang</p></div>
-                <div class="info-row"><i class="fas fa-calendar-alt"></i><p><strong>Open Days:</strong><br>Sat - Thu (10 AM - 8 PM)<br><span style="color:var(--red); font-weight:bold;">Friday: Closed</span></p></div>
-                <div class="info-row"><i class="fas fa-phone-alt"></i><p><strong>Contact:</strong><br>0345-8091910 | 0318-8091909</p></div>
-                <div style="margin-top: 30px; display: flex; gap: 15px;">
-                    <a href="tel:03458091910" style="padding:12px 25px; background:var(--primary); color:white; border-radius:10px; text-decoration:none; font-weight:bold;">Call Now</a>
-                    <a href="https://wa.me/923458091910" style="padding:12px 25px; background:#25D366; color:white; border-radius:10px; text-decoration:none; font-weight:bold;">WhatsApp</a>
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i><p><strong>Address:</strong><br>78F7+VXC, Press Wali Gali,<br>Jhang Sadar Jhang, Pakistan</p></div>
+                <div class="info-row"><i class="fas fa-clock"></i><p><strong>Timings:</strong><br>Sat - Thu: 10:00 AM - 08:00 PM<br><span style="color:var(--red); font-weight:bold;">Friday: Closed</span></p></div>
+                <div class="info-row"><i class="fas fa-phone-alt"></i><p><strong>Contact:</strong><br>0345-8091910<br>0318-8091909</p></div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <a href="tel:03458091910" style="padding:15px 25px; background:var(--primary); color:white; border-radius:12px; text-decoration:none; font-weight:bold;">Call Now</a>
+                    <a href="https://wa.me/923458091910" style="padding:15px 25px; background:#25D366; color:white; border-radius:12px; text-decoration:none; font-weight:bold;">WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -175,43 +145,40 @@
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span onclick="closeModal()" class="close">&times;</span>
+            <span onclick="closeModal()" style="position:absolute; top:-50px; right:0; color:white; font-size:40px; cursor:pointer;">×</span>
             <div id="slides-container"></div>
             <div style="margin-top:20px; display:flex; justify-content:center; gap:20px;">
-                <button onclick="plusSlides(-1)" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Previous</button>
+                <button onclick="plusSlides(-1)" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Prev</button>
                 <button onclick="plusSlides(1)" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">Next</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <h2 style="font-family:'Playfair Display'; font-size:30px; margin-bottom:10px;">Madina Flex Center</h2>
-        <p style="opacity:0.6;">Quality Printing & Royal Wedding Cards Since 2014</p>
-        <p style="margin-top:30px; font-size:12px; opacity:0.4;">© 2026 Madina Flex Studio Jhang | All Rights Reserved</p>
+        <h2 style="font-family:'Playfair Display'; margin-bottom:10px;">Madina Flex Center</h2>
+        <p style="opacity:0.6;">Quality Panaflex & Royal Wedding Cards Specialist</p>
+        <p style="margin-top:40px; font-size:11px; opacity:0.3;">© 2024 Madina Flex | Press Wali Gali Jhang</p>
     </footer>
 
     <a href="https://wa.me/923458091910" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // Header Slideshow
         let hIdx = 0;
-        const slides = document.querySelectorAll('.slide');
+        const hSlides = document.querySelectorAll('.slide');
         setInterval(() => {
-            slides[hIdx].classList.remove('active');
-            hIdx = (hIdx + 1) % slides.length;
-            slides[hIdx].classList.add('active');
+            hSlides[hIdx].classList.remove('active');
+            hIdx = (hIdx + 1) % hSlides.length;
+            hSlides[hIdx].classList.add('active');
         }, 4000);
 
-        // Auto Gallery
-        const container = document.getElementById('slides-container');
-        for (let i = 1; i <= 40; i++) {
-            const d = document.createElement('div');
-            d.className = 'mySlides'; d.style.display = 'none';
-            d.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Card+Design+${i}'">`;
-            container.appendChild(d);
+        const sCont = document.getElementById('slides-container');
+        for(let i=1; i<=40; i++) {
+            const div = document.createElement('div');
+            div.className = 'mySlides'; div.style.display = 'none';
+            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Card+Design+${i}'">`;
+            sCont.appendChild(div);
         }
 
-        // Modal Logic
         let sIdx = 1;
         function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); }
         function closeModal() { document.getElementById("myModal").style.display = "none"; }
@@ -220,7 +187,7 @@
             let s = document.getElementsByClassName("mySlides");
             if (n > s.length) sIdx = 1; if (n < 1) sIdx = s.length;
             for (let i = 0; i < s.length; i++) s[i].style.display = "none";
-            s[sIdx-1].style.display = "block";
+            if(s[sIdx-1]) s[sIdx-1].style.display = "block";
         }
     </script>
 </body>
