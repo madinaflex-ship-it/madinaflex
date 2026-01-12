@@ -5,31 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madina Flex & Wedding Cards Center</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 :root {
-  --primary-color: #0f766e;
-  --bg-light: #f4f6f8;
+  --primary: #0f766e;
+  --secondary: #14b8a6;
+  --accent: #f59e0b; /* Gold/Yellow for highlights */
+  --bg: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.8);
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: var(--bg-light);
+  background-color: var(--bg);
+  color: #1e293b;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* ===== ہیڈر (Full Fit & Zoom Effect) ===== */
+/* ===== MODERN HEADER ===== */
 header {
   position: relative;
-  height: 400px;
-  overflow: hidden;
+  height: 450px;
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .slide {
@@ -37,112 +44,207 @@ header {
   top: 0; left: 0;
   width: 100%; height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
 }
 
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-}
+.slide.active { opacity: 1; z-index: 1; }
 
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* سائیڈز خالی نہیں ہوں گی */
-  object-position: center;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
 }
 
 .text-slide {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: #fff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 10;
 }
 
 .text-slide h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 8vw, 50px);
-  margin: 0;
+  font-size: clamp(28px, 8vw, 60px);
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding: 20px;
 }
 
-/* ===== نیویگیشن ===== */
-nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-nav a { margin: 0 15px; text-decoration: none; color: var(--primary-color); font-weight: 600; }
+/* ===== GLASSY NAV BAR ===== */
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  z-index: 1000;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
 
-/* ===== سروسز ===== */
-section { max-width: 1100px; margin: auto; padding: 50px 20px; }
-h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.card { background: #fff; padding: 40px 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
-.card:hover { transform: translateY(-10px); }
+nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
 
-/* ===== ویڈنگ گیلری پاپ اپ (Modal) ===== */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
-.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 500px; text-align: center; }
+nav a:hover { color: var(--accent); }
 
-/* تصاویر کے لیے اسٹائل */
-.mySlides { display: none; }
-.mySlides img { width: 100%; border-radius: 10px; border: 4px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+/* ===== SECTION STYLING ===== */
+section { max-width: 1200px; margin: auto; padding: 80px 20px; }
 
-.close { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px; height: 4px;
+  background: var(--accent);
+  position: absolute; bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== UPGRADED SERVICE CARDS ===== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--secondary);
+}
+
+.card i {
+  font-size: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.card h3 { font-size: 22px; margin-bottom: 15px; color: #0f172a; }
+.card p { color: #64748b; line-height: 1.6; }
+
+/* ===== WEDDING MODAL (40 IMAGES) ===== */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
+.modal-content { position: relative; margin: auto; top: 50%; transform: translateY(-50%); width: 90%; max-width: 550px; }
+.mySlides { display: none; animation: zoomIn 0.5s; }
+.mySlides img { width: 100%; border-radius: 15px; border: 5px solid #fff; }
+
+@keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
+.close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 40px; cursor: pointer; }
 .prev, .next { 
-  cursor: pointer; position: absolute; top: 50%; padding: 16px; color: #fff; font-weight: bold; font-size: 24px; 
-  background: rgba(0,0,0,0.7); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; text-decoration: none;
+  cursor: pointer; position: absolute; top: 50%; padding: 15px; color: #fff; background: var(--primary);
+  border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
 }
 .next { right: -60px; } .prev { left: -60px; }
 
-/* سلائیڈ نمبر دکھانے کے لیے */
-.numbertext { color: #f2f2f2; font-size: 14px; padding: 8px 12px; position: absolute; top: 0; }
+/* ===== FOOTER & CONTACT ===== */
+footer {
+  background: #0f172a;
+  color: #fff;
+  padding: 60px 20px 20px;
+  text-align: center;
+}
 
-/* ===== رابطہ سیکشن ===== */
-#contact-box { text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; }
-.contact-numbers { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 15px; }
-.contact-item { font-size: 18px; color: #333; font-weight: 600; text-decoration: none; }
-.contact-item i { color: var(--primary-color); margin-right: 8px; }
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
 
-.whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+.contact-info i { color: var(--accent); font-size: 24px; margin-bottom: 10px; display: block; }
+.contact-info a { color: #cbd5e1; text-decoration: none; font-size: 18px; }
 
-@media(max-width: 768px) { .next { right: 0; } .prev { left: 0; } header { height: 250px; } }
+.copyright { border-top: 1px solid #1e293b; padding-top: 20px; font-size: 14px; color: #94a3b8; }
+
+/* Whatsapp */
+.whatsapp {
+  position: fixed; bottom: 30px; right: 30px;
+  background: #25D366; color: #fff;
+  width: 65px; height: 65px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 35px; z-index: 1000; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+  transition: 0.3s;
+}
+.whatsapp:hover { transform: scale(1.1) rotate(10deg); }
+
+@media(max-width: 768px) {
+  header { height: 300px; }
+  .next { right: 0; } .prev { left: 0; }
+  .contact-grid { gap: 20px; }
+}
 </style>
 </head>
 <body>
 
-<header id="mainHeader">
+<header>
     <div class="slide active"><img src="h1.png"></div>
     <div class="slide"><img src="h2.png"></div>
     <div class="slide"><img src="h3.png"></div>
     <div class="slide text-slide">
-        <h1>Madina Flex & Wedding Cards Center</h1>
+        <h1>Madina Flex & Wedding Cards</h1>
     </div>
 </header>
 
 <nav>
-    <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#wedding-cards">Gallery</a>
     <a href="#contact">Contact</a>
 </nav>
 
 <section id="services">
-  <h2>Our Services</h2>
+  <h2 class="section-title">Premium Services</h2>
   <div class="services">
     <div class="card">
-      <i class="fas fa-layer-group" style="font-size:45px; color:var(--primary-color);"></i>
+      <i class="fas fa-print"></i>
       <h3>Flex Printing</h3>
-      <p>High Quality Shop Boards</p>
+      <p>Highest quality flex printing for shop boards, banners, and Panaflex with vibrant colors.</p>
     </div>
     
-    <div class="card" onclick="openModal()">
-      <i class="fas fa-envelope-open-text" style="font-size:45px; color:var(--primary-color);"></i>
+    <div class="card" onclick="openModal()" id="wedding-cards">
+      <i class="fas fa-heart"></i>
       <h3>Wedding Cards</h3>
-      <p>Click to View 40+ Designs</p>
+      <p>Exclusive and royal wedding card designs. Click to explore our 40+ latest collections.</p>
     </div>
 
     <div class="card">
-      <i class="fas fa-print" style="font-size:45px; color:var(--primary-color);"></i>
-      <h3>Digital Printing</h3>
-      <p>Multi-color Solutions</p>
+      <i class="fas fa-palette"></i>
+      <h3>Digital Graphics</h3>
+      <p>Creative graphic designing and multi-color digital printing for all your business needs.</p>
     </div>
   </div>
 </section>
@@ -150,67 +252,66 @@ h2 { text-align: center; color: var(--primary-color); margin-bottom: 30px; }
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    
     <div id="slides-container"></div>
-    
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
 </div>
 
-<section id="contact">
-  <div id="contact-box">
-    <h2>Contact Us</h2>
-    <p><i class="fas fa-map-marker-alt" style="color:var(--primary-color);"></i> Press Market, Shaheed Road, Jhang</p>
-    <div class="contact-numbers">
-      <a href="tel:03458091910" class="contact-item"><i class="fas fa-phone-alt"></i> 0345-8091910</a>
-      <a href="tel:03000000000" class="contact-item"><i class="fas fa-phone-alt"></i> 0300-0000000</a>
+<footer id="contact">
+    <h2 class="section-title" style="color:#fff; border-color: #fff;">Get In Touch</h2>
+    <div class="contact-grid">
+        <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Press Market, Shaheed Road, Jhang</p>
+        </div>
+        <div class="contact-info">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:03458091910">0345-8091910</a><br>
+            <a href="tel:03001234567">0300-1234567</a>
+        </div>
     </div>
-  </div>
-</section>
+    <div class="copyright">
+        &copy; 2024 Madina Flex Center. Designed with ❤️ for Quality.
+    </div>
+</footer>
 
 <a class="whatsapp" href="https://wa.me/923458091910" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-// --- ہیڈر سلائیڈ شو ---
-let currentHeaderSlide = 0;
-const headerSlides = document.querySelectorAll('.slide');
+// --- Header Slider ---
+let curH = 0;
+const hSlides = document.querySelectorAll('.slide');
 setInterval(() => {
-    headerSlides[currentHeaderSlide].classList.remove('active');
-    currentHeaderSlide = (currentHeaderSlide + 1) % headerSlides.length;
-    headerSlides[currentHeaderSlide].classList.add('active');
-}, 4500);
+    hSlides[curH].classList.remove('active');
+    curH = (curH + 1) % hSlides.length;
+    hSlides[curH].classList.add('active');
+}, 5000);
 
-// --- 40 تصاویر خودکار جنریٹ کرنا ---
-const slidesContainer = document.getElementById('slides-container');
-const totalImages = 40; // تصاویر کی تعداد
-
+// --- 40 Images Generator ---
+const container = document.getElementById('slides-container');
+const totalImages = 40;
 for (let i = 1; i <= totalImages; i++) {
-    const slideDiv = document.createElement('div');
-    slideDiv.className = 'mySlides';
-    slideDiv.innerHTML = `
-        <div class="numbertext">${i} / ${totalImages}</div>
-        <img src="wedding${i}.jpg" loading="lazy" onerror="this.parentElement.style.display='none'">
-    `;
-    slidesContainer.appendChild(slideDiv);
+    const div = document.createElement('div');
+    div.className = 'mySlides';
+    div.innerHTML = `<img src="wedding${i}.jpg" loading="lazy">`;
+    container.appendChild(div);
 }
 
-// --- گیلری کنٹرول ---
-var modalSlideIndex = 1;
-function openModal() { document.getElementById("myModal").style.display = "block"; showModalSlides(modalSlideIndex); }
+// --- Gallery Controls ---
+var sIdx = 1;
+function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); }
 function closeModal() { document.getElementById("myModal").style.display = "none"; }
-function plusSlides(n) { showModalSlides(modalSlideIndex += n); }
-function showModalSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {modalSlideIndex = 1}
-  if (n < 1) {modalSlideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-  if(slides[modalSlideIndex-1]) slides[modalSlideIndex-1].style.display = "block";
+function plusSlides(n) { show(sIdx += n); }
+function show(n) {
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) sIdx = 1; if (n < 1) sIdx = slides.length;
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slides[sIdx-1].style.display = "block";
 }
-window.onclick = function(event) { if (event.target == document.getElementById("myModal")) closeModal(); }
+window.onclick = (e) => { if (e.target.className == 'modal') closeModal(); }
 </script>
 
 </body>
