@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Flex | Global Standard Printing Agency</title>
+    <title>Madina Flex | International Standard Printing Hub</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,20 +14,19 @@
             --gold: #eab308; 
             --dark: #020617; 
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.85);
+            --glass: rgba(255, 255, 255, 0.8);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* INTERNATIONAL LEVEL ANIMATED BACKGROUND */
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #f8fafc, #cbd5e1);
+            background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #e2e8f0);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: var(--dark); 
             scroll-behavior: smooth; 
-            padding-bottom: 70px; 
+            padding-bottom: 90px; 
         }
 
         @keyframes gradientBG {
@@ -38,200 +37,158 @@
 
         /* PREMIUM HEADER */
         header { 
-            position: relative; 
-            height: 450px; 
-            background: #000; 
-            overflow: hidden; 
-            border-bottom: 6px solid var(--primary); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative; height: 400px; background: #000; 
+            overflow: hidden; border-bottom: 5px solid var(--primary); 
         }
-        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 2s; display: flex; align-items: center; justify-content: center; }
-        .slide.active { opacity: 1; transform: scale(1.05); }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 1.5s; display: flex; align-items: center; justify-content: center; }
+        .slide.active { opacity: 1; }
         .slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-        /* GLASSMORPHIC NAVIGATION */
+        /* GLASS NAVIGATION */
         nav { 
-            position: sticky; 
-            top: 0; 
-            background: rgba(255, 255, 255, 0.7); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            padding: 18px 0; 
-            z-index: 1000; 
-            text-align: center; 
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            position: sticky; top: 0; background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(15px); padding: 15px 0; z-index: 1000; 
+            text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 800; font-size: 13px; text-transform: uppercase; transition: 0.3s; letter-spacing: 1.5px; }
-        nav a:hover { color: var(--primary); border-bottom: 2px solid var(--gold); }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .visitor-counter { background: var(--dark); color: var(--white); text-align: center; padding: 8px 0; font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+        .v-tracker { background: var(--dark); color: white; text-align: center; padding: 6px; font-size: 11px; font-weight: 700; }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
-        .sec-head { text-align: center; padding: 80px 20px 40px; }
-        .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 45px; font-weight: 900; background: linear-gradient(to right, #020617, #0d9488); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .line { width: 100px; height: 5px; background: var(--gold); margin: 20px auto; border-radius: 10px; }
+        .sec-head { text-align: center; padding: 60px 20px 40px; }
+        .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--dark); }
+        .line { width: 70px; height: 4px; background: var(--gold); margin: 15px auto; border-radius: 5px; }
 
-        /* MODERN CARD GRID */
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        /* GALLERY BUTTON & MODAL */
+        .gallery-btn {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white; border: none; padding: 18px 40px; border-radius: 50px;
+            font-weight: 800; cursor: pointer; transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+            font-size: 16px;
+        }
+        .gallery-btn:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(13, 148, 136, 0.5); }
+
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); padding-top: 50px; }
+        .modal-content { position: relative; margin: auto; width: 90%; max-width: 450px; }
+        .mySlides img { width: 100%; border-radius: 20px; border: 4px solid var(--white); }
+
+        /* CARDS */
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .why-card { 
-            background: var(--glass); 
-            padding: 50px 30px; 
-            border-radius: 30px; 
-            text-align: center; 
-            transition: 0.5s; 
-            border: 1px solid rgba(255,255,255,0.5); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            background: var(--white); padding: 40px; border-radius: 30px; 
+            text-align: center; border: 1px solid #eee; transition: 0.4s;
         }
-        .why-card:hover { 
-            transform: translateY(-15px); 
-            background: var(--white);
-            box-shadow: 0 25px 50px rgba(13, 148, 136, 0.15);
-            border-color: var(--gold);
-        }
-        .why-card i { font-size: 50px; color: var(--primary); margin-bottom: 25px; }
-        .why-card h4 { font-size: 22px; margin-bottom: 15px; font-weight: 800; }
+        .why-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .why-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
 
-        /* PREMIUM PROCESS SECTION */
-        .process-sec { 
-            background: linear-gradient(135deg, #020617 0%, #0d9488 100%); 
-            color: var(--white); 
-            border-radius: 50px; 
-            padding: 80px 40px; 
-            margin: 60px 0; 
-            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.3);
-        }
-        .step-num { 
-            width: 70px; height: 70px; 
-            background: var(--gold); 
-            color: var(--dark); 
-            border-radius: 20px; 
-            display: grid; place-items: center; 
-            margin: 0 auto 25px; 
-            font-weight: 900; font-size: 28px; 
-            transform: rotate(-10deg);
-        }
-
-        /* STYLISH TABLE */
-        .table-container { 
-            background: var(--white); 
-            border-radius: 30px; 
-            padding: 30px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
-            overflow-x: auto;
-        }
-        table { width: 100%; border-collapse: collapse; }
-        th { padding: 20px; text-align: left; border-bottom: 3px solid var(--primary); font-size: 16px; }
-        td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
-
-        /* CONTACT AREA */
+        /* CONTACT AREA & NUMBERS */
         .contact-box { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            background: var(--white); 
-            border-radius: 40px; 
-            overflow: hidden; 
-            box-shadow: 0 30px 70px rgba(0,0,0,0.1); 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            background: var(--white); border-radius: 40px; overflow: hidden; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05); 
         }
-        .info-side { padding: 50px; }
+        .info-side { padding: 40px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+        .contact-item i { color: var(--primary); font-size: 20px; margin-top: 5px; }
 
-        /* STICKY BOTTOM BAR */
-        .sticky-bar { 
+        /* STICKY ACTION BAR */
+        .action-bar { 
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); 
-            width: 90%; max-width: 500px; 
-            background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(10px);
-            display: flex; justify-content: space-around; 
-            padding: 15px; border-radius: 25px; 
-            z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            width: 90%; max-width: 500px; display: flex; gap: 10px; z-index: 2000; 
         }
-        .sticky-bar a { text-decoration: none; padding: 12px 25px; border-radius: 15px; font-weight: 700; color: white; flex: 1; margin: 0 5px; text-align: center; }
-        .btn-wa { background: #25D366; }
-        .btn-call { background: var(--primary); }
+        .action-bar a { 
+            flex: 1; text-decoration: none; padding: 15px; border-radius: 20px; 
+            color: white; font-weight: 800; text-align: center; display: flex; 
+            align-items: center; justify-content: center; gap: 8px; font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .b-call { background: var(--dark); }
+        .b-wa { background: #25D366; }
 
-        footer { background: var(--dark); color: white; padding: 80px 20px; text-align: center; }
-
-        /* ANIMATIONS */
-        [data-aos] { opacity: 0; transform: translateY(30px); transition: 1s ease; }
-        .visible { opacity: 1; transform: translateY(0); }
+        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="visitor-counter">
-        <i class="fas fa-globe"></i> GLOBAL VISITS TRACKER: <span id="vCount">1,254</span>
+    <div class="v-tracker">
+        <i class="fas fa-chart-line"></i> LIVE VISITORS: <span id="vCount">0</span>
     </div>
 
     <header id="home">
-        <div class="slide active"><img src="h1.png" alt="Madina Flex 1"></div>
-        <div class="slide"><img src="h2.png" alt="Madina Flex 2"></div>
+        <div class="slide active"><img src="h1.png" alt="Madina Flex Hub"></div>
+        <div class="slide"><img src="h2.png" alt="Quality Print"></div>
+        <div class="slide"><img src="h3.png" alt="Fast Service"></div>
     </header>
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#why">Agency Benefits</a>
-        <a href="#process">Work Flow</a>
-        <a href="#materials">Materials</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#why">Benefits</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
+        <section id="gallery" style="text-align: center; padding: 60px 0;">
+            <div class="sec-head"><h2>Exclusive Wedding Cards</h2><div class="line"></div></div>
+            <p style="margin-bottom: 30px; opacity: 0.7;">Explore our premium collection of 40+ designer wedding cards</p>
+            <button class="gallery-btn" onclick="openModal()">
+                <i class="fas fa-images"></i> Launch Gallery Viewer
+            </button>
+        </section>
+
         <section id="why">
-            <div class="sec-head"><h2>The Gold Standard in Printing</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>Agency Advantages</h2><div class="line"></div></div>
             <div class="why-grid">
-                <div class="why-card"><i class="fas fa-microchip"></i><h4>Hi-Tech Machines</h4><p>Equipped with latest industrial-grade Japanese printing technology.</p></div>
-                <div class="why-card"><i class="fas fa-leaf"></i><h4>Eco-Friendly Inks</h4><p>We use high-intensity, environmental friendly non-fade inks.</p></div>
-                <div class="why-card"><i class="fas fa-shipping-fast"></i><h4>Direct-to-Shop</h4><p>Same day printing & rapid delivery throughout the region.</p></div>
-            </div>
-        </section>
-
-        <section id="process" class="process-sec">
-            <div class="sec-head"><h2 style="color:white">Professional Workflow</h2><div class="line"></div></div>
-            <div class="process-grid">
-                <div class="step"><div class="step-num">01</div><h4>Discovery</h4><p>Strategy & Consultation</p></div>
-                <div class="step"><div class="step-num">02</div><h4>Creatives</h4><p>Premium Graphic Design</p></div>
-                <div class="step"><div class="step-num">03</div><h4>Production</h4><p>High-Fidelity Printing</p></div>
-                <div class="step"><div class="step-num">04</div><h4>Logistics</h4><p>Quality Check & Delivery</p></div>
-            </div>
-        </section>
-
-        <section id="materials">
-            <div class="sec-head"><h2>Premium Materials</h2><div class="line"></div></div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr><th>Material Type</th><th>Quality</th><th>Durability</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Star Flex Premium</strong></td><td>HD 1440dpi</td><td>Outdoor 3 Years</td></tr>
-                        <tr><td><strong>Back-lit Film</strong></td><td>Ultra Glow</td><td>Indoor / Semi-Outdoor</td></tr>
-                        <tr><td><strong>Glossy Vinyl</strong></td><td>Sticker Type</td><td>Permanent Glow</td></tr>
-                    </tbody>
-                </table>
+                <div class="why-card"><i class="fas fa-bolt"></i><h4>Fast Track</h4><p>Urgent flex printing within 30 minutes for local clients.</p></div>
+                <div class="why-card"><i class="fas fa-layer-group"></i><h4>Material Choice</h4><p>From Star HD to China Flex, we have everything in stock.</p></div>
+                <div class="why-card"><i class="fas fa-palette"></i><h4>Pro Design</h4><p>Our designers ensure your brand looks international.</p></div>
             </div>
         </section>
     </div>
 
     <section id="contact" class="container">
-        <div class="sec-head"><h2>Global Reach, Local Presence</h2><div class="line"></div></div>
+        <div class="sec-head"><h2>Connect With Us</h2><div class="line"></div></div>
         <div class="contact-box">
             <div class="info-side">
-                <div class="contact-item"><i class="fas fa-map-marked-alt"></i><div><strong>HQ Location</strong><br>Press Wali Gali, Jhang Sadar</div></div>
-                <div class="contact-item"><i class="fas fa-headset"></i><div><strong>24/7 Support</strong><br>0345-8091910</div></div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div><strong>Headquarters</strong><br>Press Wali Gali, Jhang Sadar</div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div><strong>Call Today</strong><br>0345-8091910<br>0318-8091909</div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div><strong>Business Hours</strong><br>10:00 AM - 08:00 PM</div>
+                </div>
             </div>
-            <div style="height: 400px; background: #eee;">
+            <div style="height: 350px;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.353344607775!2d72.32594617518593!3d31.28003615929653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923992bd18845d9%3A0x9d5596ef31b4d5c2!2sMadina%20Digital%20Flex%20%26%20wadding%20cards!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </section>
 
-    <div class="sticky-bar">
-        <a href="tel:03458091910" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
-        <a href="https://wa.me/923458091910" class="btn-wa"><i class="fab fa-whatsapp"></i> Chat Now</a>
+    <div class="action-bar">
+        <a href="tel:03458091910" class="b-call"><i class="fas fa-phone"></i> Call Now</a>
+        <a href="https://wa.me/923458091910" class="b-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="position:absolute; top:-50px; right:0; color:white; font-size:40px; cursor:pointer;">×</span>
+            <div id="slides-container"></div>
+            <div style="margin-top:20px; display:flex; justify-content:center; gap:15px;">
+                <button onclick="plusSlides(-1)" style="padding:12px 25px; border-radius:10px; border:none; background:white; font-weight:bold;">PREV</button>
+                <button onclick="plusSlides(1)" style="padding:12px 25px; border-radius:10px; border:none; background:white; font-weight:bold;">NEXT</button>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <h2 style="font-family:'Playfair Display'; font-size: 30px;">Madina Flex Center Jhang</h2>
-        <p style="opacity: 0.5; margin-top: 20px;">International Standard Printing Agency © 2026</p>
+        <h2 style="font-family:'Playfair Display'">Madina Flex Jhang</h2>
+        <p style="opacity: 0.5; margin-top: 10px; font-size: 13px;">Premium Quality Printing Solutions © 2026</p>
     </footer>
 
     <script>
@@ -244,11 +201,30 @@
             hSlides[hIdx].classList.add('active');
         }, 5000);
 
-        // Visitor Counter
-        let count = localStorage.getItem('vCount') || 1254;
+        // Visitor Counter logic
+        let count = localStorage.getItem('site_visits') || 1350;
         count = parseInt(count) + 1;
-        localStorage.setItem('vCount', count);
+        localStorage.setItem('site_visits', count);
         document.getElementById('vCount').innerText = count.toLocaleString();
+
+        // Gallery logic
+        const sCont = document.getElementById('slides-container');
+        for(let i=1; i<=40; i++) {
+            const div = document.createElement('div');
+            div.className = 'mySlides'; div.style.display = 'none';
+            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Premium+Design+${i}'">`;
+            sCont.appendChild(div);
+        }
+        let sIdx = 1;
+        function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; document.body.style.overflow = 'auto'; }
+        function plusSlides(n) { show(sIdx += n); }
+        function show(n) {
+            let s = document.getElementsByClassName("mySlides");
+            if (n > s.length) sIdx = 1; if (n < 1) sIdx = s.length;
+            for (let i = 0; i < s.length; i++) s[i].style.display = "none";
+            s[sIdx-1].style.display = "block";
+        }
     </script>
 </body>
 </html>
