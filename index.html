@@ -45,7 +45,7 @@
         }
         nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* HEADER SLIDER - NOW 2 SECONDS */
+        /* HEADER SLIDER - h1 and h3 ONLY (2 SECONDS) */
         header { position: relative; height: 420px; background: #000; overflow: hidden; border-bottom: 6px solid var(--primary); }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 0.8s ease-in-out; display: flex; align-items: center; justify-content: center; }
         .slide.active { opacity: 1; }
@@ -66,10 +66,10 @@
         .why-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         .why-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
 
-        /* SERVICES */
+        /* PRODUCTS - WEDDING CARDS ADDED */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 30px; }
         .service-item { background: var(--dark); color: white; padding: 20px; border-radius: 20px; text-align: center; transition: 0.3s; }
-        .service-item:hover { background: var(--primary); }
+        .service-item:hover { background: var(--primary); transform: scale(1.05); }
         .service-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 24px; }
 
         /* WORKFLOW */
@@ -92,7 +92,7 @@
             font-weight: 800; cursor: pointer; transition: 0.4s; font-size: 16px;
         }
 
-        /* CONTACT & WEEKEND */
+        /* CONTACT SECTION */
         .contact-box { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             background: var(--white); border-radius: 40px; overflow: hidden; 
@@ -125,12 +125,11 @@
 <body>
 
     <div class="v-tracker">
-        <i class="fas fa-star"></i> PREMIUM PRINTING HUB | JHANG SADAR
+        <i class="fas fa-certificate"></i> OFFICIAL MADINA FLEX DIGITAL PORTAL
     </div>
 
     <header id="home">
         <div class="slide active"><img src="h1.png" alt="Slide 1"></div>
-        <div class="slide"><img src="h2.png" alt="Slide 2"></div>
         <div class="slide"><img src="h3.png" alt="Slide 3"></div>
     </header>
 
@@ -139,69 +138,70 @@
         <a href="#why">Why Us</a>
         <a href="#services">Products</a>
         <a href="#workflow">Workflow</a>
-        <a href="#gallery">Wedding Cards</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         
         <section id="why">
-            <div class="sec-head"><h2>Why Choose Us</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>The Best in Jhang</h2><div class="line"></div></div>
             <div class="why-grid">
-                <div class="why-card"><i class="fas fa-award"></i><h4>Quality First</h4><p>Original inks and premium materials for long-lasting prints.</p></div>
-                <div class="why-card"><i class="fas fa-shipping-fast"></i><h4>Fastest Service</h4><p>Quick turnaround for all your urgent printing needs.</p></div>
-                <div class="why-card"><i class="fas fa-tags"></i><h4>Best Prices</h4><p>Competitive factory rates without compromising quality.</p></div>
+                <div class="why-card"><i class="fas fa-check-circle"></i><h4>Top Quality</h4><p>High-resolution prints that never fade.</p></div>
+                <div class="why-card"><i class="fas fa-rocket"></i><h4>Express Delivery</h4><p>We value your time with instant printing.</p></div>
+                <div class="why-card"><i class="fas fa-money-bill-wave"></i><h4>Wholesale Rates</h4><p>Premium service at the most affordable price.</p></div>
             </div>
         </section>
 
         <section id="services">
-            <div class="sec-head"><h2>Our Services</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>Our Products</h2><div class="line"></div></div>
             <div class="services-grid">
+                <div class="service-item"><i class="fas fa-heart"></i>Wedding Cards</div>
                 <div class="service-item"><i class="fas fa-scroll"></i>Panaflex</div>
                 <div class="service-item"><i class="fas fa-id-card"></i>Visiting Cards</div>
                 <div class="service-item"><i class="fas fa-file-invoice"></i>Bill Books</div>
-                <div class="service-item"><i class="fas fa-stamp"></i>Stamps</div>
+                <div class="service-item"><i class="fas fa-stamp"></i>Official Stamps</div>
                 <div class="service-item"><i class="fas fa-envelope"></i>Letter Pads</div>
             </div>
         </section>
 
         <section id="workflow" class="flow-sec">
-            <div class="sec-head"><h2>How We Work</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>Work Flow</h2><div class="line"></div></div>
             <div class="flow-grid">
-                <div class="flow-step"><div class="step-num">01</div><h4>Order</h4><p>Discuss your requirements.</p></div>
-                <div class="flow-step"><div class="step-num">02</div><h4>Design</h4><p>Get a professional draft.</p></div>
-                <div class="flow-step"><div class="step-num">03</div><h4>Print</h4><p>HD Industrial printing.</p></div>
-                <div class="flow-step"><div class="step-num">04</div><h4>Done</h4><p>Ready for collection.</p></div>
+                <div class="flow-step"><div class="step-num">01</div><h4>Idea</h4><p>Tell us what you need.</p></div>
+                <div class="flow-step"><div class="step-num">02</div><h4>Design</h4><p>Perfecting the layout.</p></div>
+                <div class="flow-step"><div class="step-num">03</div><h4>Print</h4><p>HD Quality output.</p></div>
+                <div class="flow-step"><div class="step-num">04</div><h4>Collect</h4><p>Ready to go!</p></div>
             </div>
         </section>
 
         <section id="gallery" class="gallery-box">
-            <h2>Exclusive Wedding Cards</h2>
-            <p style="margin-bottom: 25px; opacity: 0.8;">Browse our collection of 40+ premium designs.</p>
+            <h2>Wedding Card Gallery</h2>
+            <p style="margin-bottom: 25px; opacity: 0.8;">Explore our exclusive 40+ designer card collection.</p>
             <button class="gallery-btn" onclick="openModal()">
-                <i class="fas fa-images"></i> VIEW GALLERY
+                <i class="fas fa-images"></i> OPEN GALLERY
             </button>
         </section>
 
     </div>
 
     <section id="contact" class="container">
-        <div class="sec-head"><h2>Visit Our Studio</h2><div class="line"></div></div>
+        <div class="sec-head"><h2>Connect With Us</h2><div class="line"></div></div>
         <div class="contact-box">
             <div class="info-side">
-                <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong><br>Press Wali Gali, Jhang Sadar</p><br>
-                <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong><br>0345-8091910 | 0318-8091909</p><br>
-                <p><strong><i class="fas fa-clock"></i> Hours:</strong><br>10:00 AM - 08:00 PM<br>
+                <p><strong><i class="fas fa-map-marker-alt"></i> Location:</strong><br>Press Wali Gali, Jhang Sadar</p><br>
+                <p><strong><i class="fas fa-phone-alt"></i> Helpline:</strong><br>0345-8091910 | 0318-8091909</p><br>
+                <p><strong><i class="fas fa-clock"></i> Timings:</strong><br>10:00 AM - 08:00 PM<br>
                 <span class="weekend-badge">Friday Full Day Weekend (Closed)</span></p>
             </div>
-            <div style="height: 350px; background: #eee;">
+            <div style="height: 350px;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.353344607775!2d72.32594617518593!3d31.28003615929653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923992bd18845d9%3A0x9d5596ef31b4d5c2!2sMadina%20Digital%20Flex%20%26%20wadding%20cards!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </section>
 
     <div class="action-bar">
-        <a href="tel:03458091910" class="b-call"><i class="fas fa-phone"></i> CALL</a>
+        <a href="tel:03458091910" class="b-call"><i class="fas fa-phone"></i> CALL NOW</a>
         <a href="https://wa.me/923458091910" class="b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
     </div>
 
@@ -218,11 +218,11 @@
 
     <footer>
         <p><strong>Madina Flex Center Jhang</strong></p>
-        <p style="opacity: 0.5; font-size: 11px; margin-top: 10px;">PREMIUM PRINTING SOLUTIONS © 2026</p>
+        <p style="opacity: 0.5; font-size: 11px; margin-top: 10px;">EXCELLENCE IN PRINTING © 2026</p>
     </footer>
 
     <script>
-        // Slideshow logic - Updated to 2 Seconds (2000ms)
+        // Slideshow logic - h1 and h3 (2 Seconds)
         let hIdx = 0;
         const hSlides = document.querySelectorAll('.slide');
         setInterval(() => {
@@ -231,12 +231,12 @@
             hSlides[hIdx].classList.add('active');
         }, 2000);
 
-        // Wedding Gallery Loader
+        // Gallery Loader
         const sCont = document.getElementById('slides-container');
         for(let i=1; i<=40; i++) {
             const div = document.createElement('div');
             div.className = 'mySlides'; div.style.display = 'none';
-            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Wedding+Card+${i}'">`;
+            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Wedding+Design+${i}'">`;
             sCont.appendChild(div);
         }
         let sIdx = 1;
