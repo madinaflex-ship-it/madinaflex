@@ -15,7 +15,6 @@
             --dark: #020617; 
             --white: #ffffff;
             --danger: #ef4444;
-            --glass: rgba(255, 255, 255, 0.8);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,100 +39,99 @@
         .v-tracker { background: var(--dark); color: white; text-align: center; padding: 8px; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
         
         nav { 
-            position: sticky; top: 0; background: rgba(255, 255, 255, 0.8); 
+            position: sticky; top: 0; background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(15px); padding: 18px 0; z-index: 1000; 
             text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* HEADER SLIDER */
+        /* HEADER SLIDER - NOW 2 SECONDS */
         header { position: relative; height: 420px; background: #000; overflow: hidden; border-bottom: 6px solid var(--primary); }
-        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 1.5s; display: flex; align-items: center; justify-content: center; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 0.8s ease-in-out; display: flex; align-items: center; justify-content: center; }
         .slide.active { opacity: 1; }
         .slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
         .container { max-width: 1150px; margin: auto; padding: 20px; }
-        .sec-head { text-align: center; padding: 80px 20px 40px; }
-        .sec-head h3 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--dark); margin-bottom: 10px; }
-        .line { width: 80px; height: 5px; background: var(--gold); margin: 0 auto; border-radius: 5px; }
+        .sec-head { text-align: center; padding: 60px 20px 40px; }
+        .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 900; color: var(--dark); }
+        .line { width: 80px; height: 5px; background: var(--gold); margin: 15px auto; border-radius: 5px; }
 
-        /* WHY CHOOSE US - GLASS CARDS */
+        /* WHY CHOOSE US */
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         .why-card { 
-            background: var(--white); padding: 45px 30px; border-radius: 35px; 
+            background: var(--white); padding: 40px 25px; border-radius: 35px; 
             text-align: center; border: 1px solid rgba(0,0,0,0.03); transition: 0.4s;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
-        .why-card:hover { transform: translateY(-12px); border-color: var(--primary); }
+        .why-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         .why-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
-        .why-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-        .why-card p { font-size: 14px; color: #64748b; line-height: 1.6; }
 
-        /* SERVICES LIST */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px; }
-        .service-item { background: var(--dark); color: white; padding: 25px; border-radius: 25px; text-align: center; transition: 0.3s; }
-        .service-item:hover { background: var(--primary); transform: scale(1.03); }
-        .service-item i { font-size: 28px; color: var(--gold); margin-bottom: 15px; display: block; }
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 30px; }
+        .service-item { background: var(--dark); color: white; padding: 20px; border-radius: 20px; text-align: center; transition: 0.3s; }
+        .service-item:hover { background: var(--primary); }
+        .service-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 24px; }
 
-        /* WORKFLOW SECTION */
-        .flow-sec { background: var(--white); border-radius: 50px; padding: 60px 40px; margin: 80px 0; box-shadow: 0 20px 60px rgba(0,0,0,0.04); }
-        .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .flow-step { text-align: center; position: relative; }
+        /* WORKFLOW */
+        .flow-sec { background: var(--white); border-radius: 40px; padding: 50px 30px; margin: 60px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.03); }
+        .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+        .flow-step { text-align: center; }
         .step-num { 
-            width: 60px; height: 60px; background: var(--dark); color: var(--gold); 
-            border-radius: 50%; display: grid; place-items: center; margin: 0 auto 20px;
-            font-weight: 900; font-size: 22px; border: 4px solid var(--gold);
+            width: 55px; height: 55px; background: var(--dark); color: var(--gold); 
+            border-radius: 50%; display: grid; place-items: center; margin: 0 auto 15px;
+            font-weight: 900; font-size: 20px; border: 3px solid var(--gold);
         }
 
-        /* GALLERY & CONTACT */
+        /* WEDDING GALLERY BOX */
         .gallery-box { 
             background: linear-gradient(135deg, #020617, #0d9488); color: white; border-radius: 40px; 
-            padding: 80px 20px; text-align: center; margin: 40px 0;
+            padding: 70px 20px; text-align: center; margin: 40px 0;
         }
         .gallery-btn {
-            background: var(--gold); color: var(--dark); border: none; padding: 20px 50px; border-radius: 50px;
-            font-weight: 800; cursor: pointer; transition: 0.4s; font-size: 16px; box-shadow: 0 10px 30px rgba(234, 179, 8, 0.4);
+            background: var(--gold); color: var(--dark); border: none; padding: 18px 45px; border-radius: 50px;
+            font-weight: 800; cursor: pointer; transition: 0.4s; font-size: 16px;
         }
 
+        /* CONTACT & WEEKEND */
         .contact-box { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            background: var(--white); border-radius: 40px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.05); 
+            background: var(--white); border-radius: 40px; overflow: hidden; 
         }
-        .info-side { padding: 50px; }
-        .weekend-badge { background: var(--danger); color: white; padding: 5px 15px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-block; margin-top: 10px; }
+        .info-side { padding: 45px; }
+        .weekend-badge { background: var(--danger); color: white; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 800; display: inline-block; margin-top: 8px; }
 
-        /* STICKY ACTION BAR */
+        /* ACTION BAR */
         .action-bar { 
             position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); 
-            width: 90%; max-width: 500px; display: flex; gap: 12px; z-index: 2000; 
+            width: 90%; max-width: 500px; display: flex; gap: 10px; z-index: 2000; 
         }
         .action-bar a { 
-            flex: 1; text-decoration: none; padding: 18px; border-radius: 22px; 
+            flex: 1; text-decoration: none; padding: 16px; border-radius: 20px; 
             color: white; font-weight: 800; text-align: center; display: flex; 
-            align-items: center; justify-content: center; gap: 10px; font-size: 14px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            align-items: center; justify-content: center; gap: 8px; font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .b-call { background: var(--dark); }
         .b-wa { background: #25D366; }
 
         /* MODAL */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); padding-top: 60px; }
-        .modal-content { position: relative; margin: auto; width: 90%; max-width: 480px; text-align: center; }
-        .mySlides img { width: 100%; border-radius: 30px; border: 6px solid var(--white); }
+        .modal-content { position: relative; margin: auto; width: 90%; max-width: 450px; text-align: center; }
+        .mySlides img { width: 100%; border-radius: 25px; border: 5px solid white; }
 
-        footer { background: var(--dark); color: white; padding: 80px 20px; text-align: center; border-top: 5px solid var(--gold); }
+        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; border-top: 4px solid var(--gold); }
     </style>
 </head>
 <body>
 
     <div class="v-tracker">
-        <i class="fas fa-globe-asia"></i> INTERNATIONAL PRINTING STANDARDS | JHANG SADAR
+        <i class="fas fa-star"></i> PREMIUM PRINTING HUB | JHANG SADAR
     </div>
 
     <header id="home">
-        <div class="slide active"><img src="h1.png" alt="Madina Flex Hub"></div>
-        <div class="slide"><img src="h2.png" alt="Premium Printing"></div>
+        <div class="slide active"><img src="h1.png" alt="Slide 1"></div>
+        <div class="slide"><img src="h2.png" alt="Slide 2"></div>
+        <div class="slide"><img src="h3.png" alt="Slide 3"></div>
     </header>
 
     <nav>
@@ -148,110 +146,97 @@
     <div class="container">
         
         <section id="why">
-            <div class="sec-head"><h2>Why Leading Brands Trust Us</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>Why Choose Us</h2><div class="line"></div></div>
             <div class="why-grid">
-                <div class="why-card"><i class="fas fa-certificate"></i><h4>Premium Quality</h4><p>We use high-fidelity Japanese heads and sun-proof inks for life-long vibrancy.</p></div>
-                <div class="why-card"><i class="fas fa-bolt"></i><h4>Ultra-Fast Delivery</h4><p>Time is money. Our high-speed industrial printers deliver in record time.</p></div>
-                <div class="why-card"><i class="fas fa-hand-holding-usd"></i><h4>Factory Pricing</h4><p>Direct from the source. No middleman, no extra costs—just wholesale rates.</p></div>
-                <div class="why-card"><i class="fas fa-user-check"></i><h4>Expert Support</h4><p>Our creative designers assist you from concept to final professional layout.</p></div>
+                <div class="why-card"><i class="fas fa-award"></i><h4>Quality First</h4><p>Original inks and premium materials for long-lasting prints.</p></div>
+                <div class="why-card"><i class="fas fa-shipping-fast"></i><h4>Fastest Service</h4><p>Quick turnaround for all your urgent printing needs.</p></div>
+                <div class="why-card"><i class="fas fa-tags"></i><h4>Best Prices</h4><p>Competitive factory rates without compromising quality.</p></div>
             </div>
         </section>
 
         <section id="services">
-            <div class="sec-head"><h2>Our Digital Solutions</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>Our Services</h2><div class="line"></div></div>
             <div class="services-grid">
-                <div class="service-item"><i class="fas fa-scroll"></i><h4>Panaflex Print</h4></div>
-                <div class="service-item"><i class="fas fa-id-card"></i><h4>Business Cards</h4></div>
-                <div class="service-item"><i class="fas fa-file-invoice"></i><h4>Bill Books</h4></div>
-                <div class="service-item"><i class="fas fa-stamp"></i><h4>Official Stamps</h4></div>
-                <div class="service-item"><i class="fas fa-envelope"></i><h4>Letter Pads</h4></div>
+                <div class="service-item"><i class="fas fa-scroll"></i>Panaflex</div>
+                <div class="service-item"><i class="fas fa-id-card"></i>Visiting Cards</div>
+                <div class="service-item"><i class="fas fa-file-invoice"></i>Bill Books</div>
+                <div class="service-item"><i class="fas fa-stamp"></i>Stamps</div>
+                <div class="service-item"><i class="fas fa-envelope"></i>Letter Pads</div>
             </div>
         </section>
 
         <section id="workflow" class="flow-sec">
-            <div class="sec-head"><h2>Professional Workflow</h2><div class="line"></div></div>
+            <div class="sec-head"><h2>How We Work</h2><div class="line"></div></div>
             <div class="flow-grid">
-                <div class="flow-step"><div class="step-num">01</div><h4>Consultation</h4><p>Share your vision via WhatsApp or at our studio.</p></div>
-                <div class="flow-step"><div class="step-num">02</div><h4>Design Phase</h4><p>Our experts create a high-end digital draft for you.</p></div>
-                <div class="flow-step"><div class="step-num">03</div><h4>Precision Print</h4><p>Output using our latest eco-solvent technology.</p></div>
-                <div class="flow-step"><div class="step-num">04</div><h4>Final Delivery</h4><p>Quality check and instant collection or delivery.</p></div>
+                <div class="flow-step"><div class="step-num">01</div><h4>Order</h4><p>Discuss your requirements.</p></div>
+                <div class="flow-step"><div class="step-num">02</div><h4>Design</h4><p>Get a professional draft.</p></div>
+                <div class="flow-step"><div class="step-num">03</div><h4>Print</h4><p>HD Industrial printing.</p></div>
+                <div class="flow-step"><div class="step-num">04</div><h4>Done</h4><p>Ready for collection.</p></div>
             </div>
         </section>
 
         <section id="gallery" class="gallery-box">
-            <h2 style="font-family: 'Playfair Display'; font-size: 38px; margin-bottom: 15px;">Designer Wedding Cards</h2>
-            <p style="opacity: 0.9; margin-bottom: 30px; letter-spacing: 1px;">The largest collection of 40+ designer invitation cards in Jhang Sadar.</p>
+            <h2>Exclusive Wedding Cards</h2>
+            <p style="margin-bottom: 25px; opacity: 0.8;">Browse our collection of 40+ premium designs.</p>
             <button class="gallery-btn" onclick="openModal()">
-                <i class="fas fa-images"></i> BROWSE WEDDING COLLECTION
+                <i class="fas fa-images"></i> VIEW GALLERY
             </button>
         </section>
 
     </div>
 
     <section id="contact" class="container">
-        <div class="sec-head"><h2>Get In Touch</h2><div class="line"></div></div>
+        <div class="sec-head"><h2>Visit Our Studio</h2><div class="line"></div></div>
         <div class="contact-box">
             <div class="info-side">
-                <div class="contact-item" style="display:flex; gap:15px; margin-bottom:30px;">
-                    <i class="fas fa-map-marked-alt" style="color:var(--primary); font-size:24px;"></i>
-                    <div><strong>Headquarters</strong><br>Press Wali Gali, Jhang Sadar</div>
-                </div>
-                <div class="contact-item" style="display:flex; gap:15px; margin-bottom:30px;">
-                    <i class="fas fa-headset" style="color:var(--primary); font-size:24px;"></i>
-                    <div><strong>Customer Support</strong><br>0345-8091910<br>0318-8091909</div>
-                </div>
-                <div class="contact-item" style="display:flex; gap:15px;">
-                    <i class="fas fa-door-closed" style="color:var(--primary); font-size:24px;"></i>
-                    <div>
-                        <strong>Availability</strong><br>
-                        10:00 AM - 08:00 PM<br>
-                        <span class="weekend-badge">Friday Full Day Weekend (Closed)</span>
-                    </div>
-                </div>
+                <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong><br>Press Wali Gali, Jhang Sadar</p><br>
+                <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong><br>0345-8091910 | 0318-8091909</p><br>
+                <p><strong><i class="fas fa-clock"></i> Hours:</strong><br>10:00 AM - 08:00 PM<br>
+                <span class="weekend-badge">Friday Full Day Weekend (Closed)</span></p>
             </div>
-            <div style="height: 400px; background: #eee;">
+            <div style="height: 350px; background: #eee;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.353344607775!2d72.32594617518593!3d31.28003615929653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923992bd18845d9%3A0x9d5596ef31b4d5c2!2sMadina%20Digital%20Flex%20%26%20wadding%20cards!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </section>
 
     <div class="action-bar">
-        <a href="tel:03458091910" class="b-call"><i class="fas fa-phone-alt"></i> CALL NOW</a>
+        <a href="tel:03458091910" class="b-call"><i class="fas fa-phone"></i> CALL</a>
         <a href="https://wa.me/923458091910" class="b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
     </div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span onclick="closeModal()" style="color:white; font-size:45px; position:absolute; top:-50px; right:0; cursor:pointer;">×</span>
+            <span onclick="closeModal()" style="color:white; font-size:40px; position:absolute; top:-50px; right:0; cursor:pointer;">×</span>
             <div id="slides-container"></div>
-            <div style="margin-top:25px; display:flex; justify-content:center; gap:20px;">
-                <button onclick="plusSlides(-1)" style="padding:15px 35px; border-radius:12px; border:none; background:white; font-weight:bold; cursor:pointer;">PREV</button>
-                <button onclick="plusSlides(1)" style="padding:15px 35px; border-radius:12px; border:none; background:white; font-weight:bold; cursor:pointer;">NEXT</button>
+            <div style="margin-top:20px; display:flex; justify-content:center; gap:15px;">
+                <button onclick="plusSlides(-1)" style="padding:12px 25px; border-radius:10px; border:none; background:white; font-weight:bold;">PREV</button>
+                <button onclick="plusSlides(1)" style="padding:12px 25px; border-radius:10px; border:none; background:white; font-weight:bold;">NEXT</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <h2 style="font-family:'Playfair Display'; font-size: 30px;">Madina Flex Center</h2>
-        <p style="opacity: 0.5; margin-top: 15px; font-size: 12px; letter-spacing: 2px;">THE GOLD STANDARD IN PRINTING TECHNOLOGY © 2026</p>
+        <p><strong>Madina Flex Center Jhang</strong></p>
+        <p style="opacity: 0.5; font-size: 11px; margin-top: 10px;">PREMIUM PRINTING SOLUTIONS © 2026</p>
     </footer>
 
     <script>
-        // Slideshow
+        // Slideshow logic - Updated to 2 Seconds (2000ms)
         let hIdx = 0;
         const hSlides = document.querySelectorAll('.slide');
         setInterval(() => {
             hSlides[hIdx].classList.remove('active');
             hIdx = (hIdx + 1) % hSlides.length;
             hSlides[hIdx].classList.add('active');
-        }, 5000);
+        }, 2000);
 
-        // Gallery Loader
+        // Wedding Gallery Loader
         const sCont = document.getElementById('slides-container');
         for(let i=1; i<=40; i++) {
             const div = document.createElement('div');
             div.className = 'mySlides'; div.style.display = 'none';
-            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Premium+Card+${i}'">`;
+            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Wedding+Card+${i}'">`;
             sCont.appendChild(div);
         }
         let sIdx = 1;
@@ -267,4 +252,3 @@
     </script>
 </body>
 </html>
-
