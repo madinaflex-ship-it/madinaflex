@@ -25,9 +25,27 @@
 
         /* VERIFICATION SCREEN CSS */
         #verify-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--dark); display: flex; justify-content: center;
-            align-items: center; z-index: 5000; text-align: center; color: white;
+           <!-- Google reCAPTCHA Script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- VERIFY SCREEN -->
+<div id="verify-screen">
+    <div class="v-box">
+        <i class="fas fa-user-shield" style="font-size: 50px; color: var(--gold); margin-bottom: 20px;"></i>
+        <h2>Security Check</h2>
+        <p style="opacity: 0.7; margin: 10px 0;">
+            Please verify you are human
+        </p>
+
+        <!-- ✅ reCAPTCHA FORM -->
+        <form id="verify-form">
+            <div class="g-recaptcha" data-sitekey="6LeFWs4sAAAAANpln_6Wa--zbfVKEQM3SgIZqeWa"></div>
+            <br>
+            <button type="submit" class="v-btn">ENTER WEBSITE</button>
+        </form>
+
+    </div>
+</div>
         }
       
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
