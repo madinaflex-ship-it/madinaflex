@@ -17,6 +17,8 @@
             --dark: #020617; 
             --white: #ffffff;
             --danger: #ef4444;
+            .v-box { ... }
+.v-btn { ... }
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +29,7 @@
             background: var(--dark); display: flex; justify-content: center;
             align-items: center; z-index: 5000; text-align: center; color: white;
         }
-        <button class="v-btn" id="v-button" onclick="startVerification()">I AM NOT A ROBOT</button>
+      
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <form id="verify-form">
@@ -63,6 +65,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: var(--dark); 
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             scroll-behavior: smooth; 
             padding-bottom: 100px; 
             user-select: none; /* Prevent text selection */
@@ -338,5 +341,19 @@
             s[sIdx-1].style.display = "block";
         }
     </script>
+document.getElementById("verify-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let response = grecaptcha.getResponse();
+
+    if(response.length === 0) {
+        alert("Captcha verify karo!");
+        return;
+    }
+
+    document.getElementById('verify-screen').style.display = 'none';
+    document.getElementById('main-wrapper').style.display = 'block';
+});
+</script>
 </body>
 </html>
