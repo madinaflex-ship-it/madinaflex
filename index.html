@@ -297,16 +297,23 @@
             if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) return false;
         };
 
-        // Gallery Functions
-        function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); }
-        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+     // Gallery Loader
+        const sCont = document.getElementById('slides-container');
+        for(let i=1; i<=40; i++) {
+            const div = document.createElement('div');
+            div.className = 'mySlides'; div.style.display = 'none';
+            div.innerHTML = `<img src="wedding${i}.jpg" onerror="this.src='https://via.placeholder.com/500x700?text=Design+Card+${i}'">`;
+            sCont.appendChild(div);
+        }
         let sIdx = 1;
+        function openModal() { document.getElementById("myModal").style.display = "block"; show(sIdx); document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; document.body.style.overflow = 'auto'; }
         function plusSlides(n) { show(sIdx += n); }
         function show(n) {
             let s = document.getElementsByClassName("mySlides");
             if (n > s.length) sIdx = 1; if (n < 1) sIdx = s.length;
             for (let i = 0; i < s.length; i++) s[i].style.display = "none";
-            if(s.length > 0) s[sIdx-1].style.display = "block";
+            s[sIdx-1].style.display = "block";
         }
     </script>
 </body>
